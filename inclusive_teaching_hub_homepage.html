@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="An accessible, practical and welcoming example homepage for an Inclusive Teaching and Learning Hub.">
+  <title>Inclusive Teaching Hub — design learning that works for more people</title>
+
+  <style>
+    /*
+      Accessible design principles used:
+      - Semantic HTML and landmark regions
+      - Strong visible focus states
+      - Minimum 44px interactive targets
+      - No auto-playing motion or animation
+      - High-contrast colour pairs
+      - Colour is never the only indicator
+      - Responsive reflow without horizontal scrolling
+      - System fonts only
+      - Native details/summary disclosure widgets
+      - Reduced-motion, forced-colours and increased-contrast support
+    */
+
+    :root {
+      --ink: #10152e;
+      --paper: #fffaf0;
+      --panel: #ffffff;
+      --yellow: #ffe566;
+      --cyan: #78e9e4;
+      --pink: #ff9bbb;
+      --green: #b8ef8b;
+      --lavender: #d8c7ff;
+      --red: #a3122d;
+      --muted: #4a4f65;
+      --border: 3px solid var(--ink);
+      --shadow: 7px 7px 0 var(--ink);
+      --radius: 0.35rem;
+      --content: 76rem;
+      --measure: 68ch;
+      --space-1: 0.4rem;
+      --space-2: 0.75rem;
+      --space-3: 1rem;
+      --space-4: 1.5rem;
+      --space-5: 2rem;
+      --space-6: 3rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 7rem;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(16, 21, 46, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 21, 46, 0.045) 1px, transparent 1px),
+        var(--paper);
+      background-size: 24px 24px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+      line-height: 1.65;
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: #003f8f;
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 0.12em;
+    }
+
+    a:hover {
+      text-decoration-thickness: 0.2em;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 4px solid #000000;
+      outline-offset: 4px;
+      box-shadow: 0 0 0 7px var(--yellow);
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 9999;
+      padding: 0.85rem 1rem;
+      color: #ffffff;
+      background: #000000;
+      border: 3px solid #ffffff;
+      transform: translateY(-180%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .wrap {
+      width: min(calc(100% - 2rem), var(--content));
+      margin-inline: auto;
+    }
+
+    .measure {
+      max-width: var(--measure);
+    }
+
+    .eyebrow,
+    .tag,
+    .button,
+    nav a,
+    .status-line,
+    .step-number {
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .status-line {
+      margin: 0;
+      padding: 0.65rem 1rem;
+      color: #ffffff;
+      background: var(--ink);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    header {
+      background: var(--paper);
+      border-bottom: var(--border);
+    }
+
+    .site-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      padding-block: var(--space-3);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 2.6rem;
+      min-width: 2.6rem;
+      height: 2.6rem;
+      place-items: center;
+      background: var(--yellow);
+      border: var(--border);
+      box-shadow: 3px 3px 0 var(--ink);
+      font-size: 1.35rem;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav a {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      padding: 0.55rem 0.8rem;
+      color: var(--ink);
+      background: var(--panel);
+      border: 2px solid var(--ink);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background: var(--yellow);
+    }
+
+    main {
+      padding-bottom: var(--space-6);
+    }
+
+    section {
+      padding-block: clamp(2.6rem, 7vw, 5rem);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "ACCESS • BELONG • LEARN • CHANGE";
+      position: absolute;
+      right: -3rem;
+      bottom: 1.2rem;
+      z-index: -1;
+      color: rgba(16, 21, 46, 0.08);
+      font-family: "Courier New", Courier, monospace;
+      font-size: clamp(2rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 0.9;
+      transform: rotate(-4deg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.8fr);
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 var(--space-3);
+      padding: 0.25rem 0.55rem;
+      background: var(--cyan);
+      border: 2px solid var(--ink);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Arial Black", Arial, sans-serif;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 15ch;
+      margin: 0 0 var(--space-3);
+      font-size: clamp(2.5rem, 7vw, 5.8rem);
+      letter-spacing: -0.055em;
+    }
+
+    h2 {
+      margin: 0 0 var(--space-3);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-size: clamp(1.25rem, 2vw, 1.6rem);
+    }
+
+    .lead {
+      max-width: 60ch;
+      margin-bottom: var(--space-4);
+      font-size: clamp(1.15rem, 1rem + 0.5vw, 1.45rem);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      color: var(--ink);
+      background: var(--yellow);
+      border: var(--border);
+      box-shadow: 4px 4px 0 var(--ink);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .button.secondary {
+      background: var(--panel);
+    }
+
+    .button.dark {
+      color: #ffffff;
+      background: var(--ink);
+      border-color: var(--ink);
+      box-shadow: 4px 4px 0 #ffffff;
+    }
+
+    .retro-window {
+      background: var(--panel);
+      border: var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .window-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.55rem 0.75rem;
+      background: var(--lavender);
+      border-bottom: var(--border);
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 700;
+    }
+
+    .window-dots {
+      white-space: nowrap;
+    }
+
+    .window-body {
+      padding: var(--space-4);
+    }
+
+    .plain-list {
+      padding-left: 1.25rem;
+    }
+
+    .plain-list li + li {
+      margin-top: 0.55rem;
+    }
+
+    .section-kicker {
+      max-width: var(--measure);
+      margin: -0.4rem 0 var(--space-5);
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      min-width: 0;
+      padding: var(--space-4);
+      background: var(--panel);
+      border: var(--border);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card a.stretched::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+    }
+
+    .card a.stretched:focus-visible {
+      outline-offset: 7px;
+    }
+
+    .card-yellow {
+      background: var(--yellow);
+    }
+
+    .card-cyan {
+      background: var(--cyan);
+    }
+
+    .card-pink {
+      background: var(--pink);
+    }
+
+    .card-green {
+      background: var(--green);
+    }
+
+    .step-number {
+      display: inline-grid;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-bottom: 0.8rem;
+      place-items: center;
+      background: var(--ink);
+      color: #ffffff;
+      border-radius: 50%;
+      font-size: 1.1rem;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quick-links a {
+      display: flex;
+      min-height: 64px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      color: var(--ink);
+      background: var(--panel);
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      text-decoration: none;
+    }
+
+    .quick-links a::after {
+      content: "→";
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+
+    .quick-links a:hover {
+      background: var(--cyan);
+    }
+
+    .why-band {
+      background: var(--ink);
+      color: #ffffff;
+      border-block: var(--border);
+    }
+
+    .why-band a {
+      color: var(--yellow);
+    }
+
+    .why-band .card {
+      color: var(--ink);
+    }
+
+    .pill {
+      display: inline-block;
+      margin: 0 0 0.5rem;
+      padding: 0.2rem 0.45rem;
+      background: var(--ink);
+      color: #ffffff;
+      border: 2px solid currentColor;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: start;
+    }
+
+    .principle-symbol {
+      display: grid;
+      width: 3rem;
+      height: 3rem;
+      place-items: center;
+      background: var(--yellow);
+      border: var(--border);
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 900;
+      font-size: 1.3rem;
+    }
+
+    .diagnostic {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: var(--space-5);
+      align-items: start;
+    }
+
+    details {
+      background: var(--panel);
+      border: 2px solid var(--ink);
+    }
+
+    details + details {
+      margin-top: var(--space-3);
+    }
+
+    summary {
+      min-height: 48px;
+      padding: 0.9rem 3rem 0.9rem 1rem;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    details[open] summary {
+      background: var(--yellow);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .details-body {
+      padding: 0.4rem 1rem 1rem;
+    }
+
+    .callout {
+      padding: var(--space-4);
+      background: var(--lavender);
+      border: var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-size: 1.25rem;
+    }
+
+    .support-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 0.75fr);
+      gap: var(--space-5);
+      padding: clamp(1.4rem, 4vw, 3rem);
+      background: var(--cyan);
+      border: var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .support-actions {
+      align-self: center;
+    }
+
+    .small {
+      font-size: 0.92rem;
+    }
+
+    footer {
+      padding-block: var(--space-5);
+      color: #ffffff;
+      background: var(--ink);
+      border-top: var(--border);
+    }
+
+    footer a {
+      color: var(--yellow);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-4);
+      align-items: end;
+    }
+
+    .ascii-rule {
+      overflow: hidden;
+      color: var(--muted);
+      font-family: "Courier New", Courier, monospace;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    @media (max-width: 900px) {
+      .site-head,
+      .footer-grid {
+        align-items: flex-start;
+      }
+
+      .site-head {
+        flex-direction: column;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .hero-grid,
+      .diagnostic,
+      .support-box {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(calc(100% - 1rem), var(--content));
+      }
+
+      html {
+        scroll-padding-top: 1rem;
+      }
+
+      .grid-3,
+      .grid-4,
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav ul {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      nav a {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero::after {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .button:hover {
+        transform: none;
+      }
+    }
+
+    @media (prefers-contrast: more) {
+      :root {
+        --paper: #ffffff;
+        --panel: #ffffff;
+        --muted: #252525;
+        --border: 4px solid #000000;
+        --ink: #000000;
+      }
+
+      body {
+        background: #ffffff;
+      }
+    }
+
+    @media (forced-colors: active) {
+      :root {
+        --shadow: none;
+      }
+
+      * {
+        box-shadow: none !important;
+      }
+
+      .button,
+      nav a,
+      .quick-links a {
+        forced-color-adjust: auto;
+      }
+    }
+
+    @media print {
+      .status-line,
+      nav,
+      .button-row,
+      .support-actions {
+        display: none;
+      }
+
+      body {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      .card,
+      .retro-window,
+      .callout,
+      .support-box {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <p class="status-line" role="status">
+    Inclusive design is not extra. It is how more people get to learn, belong and succeed.
+  </p>
+
+  <header>
+    <div class="wrap site-head">
+      <a class="brand" href="#top" aria-label="Inclusive Teaching Hub home">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>INCLUSIVE<br>TEACHING HUB</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#start">Start here</a></li>
+          <li><a href="#actions">Quick actions</a></li>
+          <li><a href="#udl">UDL basics</a></li>
+          <li><a href="#support">Get support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top" aria-labelledby="page-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Practical. Human. Built for real student lives.</p>
+          <h1 id="page-title">Design learning that works for more people.</h1>
+          <p class="lead">
+            Reduce avoidable barriers, make teaching easier to navigate, and help every student
+            see that they belong in university and in the professions beyond it.
+          </p>
+
+          <div class="button-row" aria-label="Primary actions">
+            <a class="button" href="#start">Make one improvement</a>
+            <a class="button secondary" href="#support">Talk with a learning designer</a>
+          </div>
+        </div>
+
+        <aside class="retro-window" aria-labelledby="today-heading">
+          <div class="window-bar">
+            <span id="today-heading">TODAY.EXE</span>
+            <span class="window-dots" aria-hidden="true">● ● ●</span>
+          </div>
+          <div class="window-body">
+            <h2 style="font-size:1.45rem;">Try this in five minutes</h2>
+            <p>
+              Give students more than one way to ask a question:
+              speaking, chat, an anonymous form, or after class.
+            </p>
+            <p class="small">
+              <strong>Why?</strong> Public speaking confidence is not the same as understanding.
+            </p>
+            <a href="#actions">See more quick actions</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="wrap ascii-rule" aria-hidden="true">
+      +-------------------------------------------------- YOU CAN START SMALL --------------------------------------------------+
+    </div>
+
+    <section id="start" aria-labelledby="start-heading">
+      <div class="wrap">
+        <p class="eyebrow">Choose your level</p>
+        <h2 id="start-heading">Start where you are.</h2>
+        <p class="section-kicker">
+          No giant checklist. Pick the amount of time you have and leave with something useful.
+        </p>
+
+        <div class="grid grid-3">
+          <article class="card card-yellow">
+            <span class="step-number" aria-hidden="true">1</span>
+            <h3>Five minutes</h3>
+            <p>Make one low-effort improvement to access, clarity or participation.</p>
+            <a class="stretched" href="#actions">Show me five-minute actions</a>
+          </article>
+
+          <article class="card card-cyan">
+            <span class="step-number" aria-hidden="true">2</span>
+            <h3>Thirty minutes</h3>
+            <p>Review one class, activity or assessment using a short guided check.</p>
+            <a class="stretched" href="#barrier-check">Check a recurring barrier</a>
+          </article>
+
+          <article class="card card-pink">
+            <span class="step-number" aria-hidden="true">3</span>
+            <h3>Whole course</h3>
+            <p>Work through course structure, materials, assessment, belonging and student voice.</p>
+            <a class="stretched" href="#support">Plan a supported review</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="actions" aria-labelledby="actions-heading">
+      <div class="wrap">
+        <p class="eyebrow">I need to…</p>
+        <h2 id="actions-heading">Find the thing you came for.</h2>
+        <p class="section-kicker">
+          These links are organised by task, not by policy language or student category.
+        </p>
+
+        <ul class="quick-links">
+          <li><a href="#materials">Make materials accessible</a></li>
+          <li><a href="#assessment">Improve an assessment</a></li>
+          <li><a href="#participation">Offer flexible participation</a></li>
+          <li><a href="#belonging">Improve belonging and representation</a></li>
+          <li><a href="#barrier-check">Respond to recurring adjustments</a></li>
+          <li><a href="#support">Ask for personalised help</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="why-band" aria-labelledby="why-heading">
+      <div class="wrap">
+        <p class="eyebrow" style="color:var(--ink);">Why this matters</p>
+        <h2 id="why-heading">Better design helps everyone do better work.</h2>
+        <p class="section-kicker" style="color:#ffffff;">
+          Inclusive teaching is educational quality, not a side project.
+        </p>
+
+        <div class="grid grid-3">
+          <article class="card card-yellow">
+            <span class="pill">FOR STUDENTS</span>
+            <h3>Fewer avoidable barriers</h3>
+            <p>
+              Students spend less energy repeatedly explaining, disclosing and negotiating for access.
+            </p>
+          </article>
+
+          <article class="card card-cyan">
+            <span class="pill">FOR STAFF</span>
+            <h3>Less repeated repair</h3>
+            <p>
+              Clearer materials and flexible defaults reduce the need to solve the same problem one student at a time.
+            </p>
+          </article>
+
+          <article class="card card-pink">
+            <span class="pill">FOR UQ</span>
+            <h3>More people can belong</h3>
+            <p>
+              Students can see themselves as legitimate future engineers, clinicians, teachers, researchers and leaders.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="udl" aria-labelledby="udl-heading">
+      <div class="wrap">
+        <p class="eyebrow">UDL in plain language</p>
+        <h2 id="udl-heading">Four questions. Use them everywhere.</h2>
+        <p class="section-kicker">
+          Universal Design for Learning helps us design for learner variability from the beginning.
+        </p>
+
+        <div class="grid grid-4">
+          <article class="card">
+            <div class="principle">
+              <span class="principle-symbol" aria-hidden="true">01</span>
+              <div>
+                <h3>Engage</h3>
+                <p>Can students understand why this matters and connect with it in more than one way?</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="principle">
+              <span class="principle-symbol" aria-hidden="true">02</span>
+              <div>
+                <h3>Access</h3>
+                <p>Can students perceive, understand and revisit the information they need?</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="principle">
+              <span class="principle-symbol" aria-hidden="true">03</span>
+              <div>
+                <h3>Demonstrate</h3>
+                <p>Does the task measure the intended learning rather than an unrelated barrier?</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="principle">
+              <span class="principle-symbol" aria-hidden="true">04</span>
+              <div>
+                <h3>Belong</h3>
+                <p>Can different students see their knowledge, identities and futures taken seriously?</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="barrier-check" aria-labelledby="barrier-heading">
+      <div class="wrap diagnostic">
+        <div>
+          <p class="eyebrow">Barrier check</p>
+          <h2 id="barrier-heading">The same adjustment keeps coming up.</h2>
+          <p>
+            A recurring adjustment can be useful evidence about course design.
+            It may point to something that can be improved for everyone.
+          </p>
+          <div class="callout">
+            <strong>Universal design does not replace individual adjustments.</strong>
+            Student Access Plans and reasonable adjustments remain essential.
+            The aim is to remove avoidable barriers before students encounter them.
+          </div>
+        </div>
+
+        <div aria-label="Common barriers and possible design responses">
+          <details>
+            <summary>Students repeatedly need extensions</summary>
+            <div class="details-body">
+              <p>Check assessment clustering, task clarity, staged submissions and whether a short self-managed extension could be built in.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Students cannot participate in live discussion</summary>
+            <div class="details-body">
+              <p>Offer written, asynchronous, anonymous or small-group options where speaking live is not the learning outcome.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Students need alternative document formats</summary>
+            <div class="details-body">
+              <p>Create accessible source documents with headings, descriptive links, usable tables and appropriate image descriptions.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Students are unclear about assessment expectations</summary>
+            <div class="details-body">
+              <p>Provide annotated exemplars, plain-language criteria, staged practice and explicit teaching of unfamiliar disciplinary conventions.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="practice-heading">
+      <div class="wrap">
+        <p class="eyebrow">Quick guides</p>
+        <h2 id="practice-heading">Small changes with a clear purpose.</h2>
+
+        <div class="grid grid-3">
+          <article class="card" id="materials">
+            <span class="pill">ACCESS</span>
+            <h3>Make materials easier to use</h3>
+            <ul class="plain-list">
+              <li>Use meaningful headings.</li>
+              <li>Caption essential video and audio.</li>
+              <li>Write descriptive link text.</li>
+              <li>Provide downloadable formats.</li>
+            </ul>
+          </article>
+
+          <article class="card" id="assessment">
+            <span class="pill">ASSESSMENT</span>
+            <h3>Measure the learning—not the barrier</h3>
+            <ul class="plain-list">
+              <li>Identify the genuine learning outcome.</li>
+              <li>Teach unfamiliar conventions explicitly.</li>
+              <li>Provide practice before high stakes.</li>
+              <li>Remove unnecessary time pressure.</li>
+            </ul>
+          </article>
+
+          <article class="card" id="participation">
+            <span class="pill">PARTICIPATION</span>
+            <h3>Make more than one doorway</h3>
+            <ul class="plain-list">
+              <li>Share questions in advance.</li>
+              <li>Offer verbal and written options.</li>
+              <li>Use individual and group activities.</li>
+              <li>Explain how students can ask for help.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="card card-green" id="belonging" style="margin-top:1.5rem;">
+          <span class="pill">BELONGING</span>
+          <h3>Help students see a future for themselves</h3>
+          <p class="measure">
+            Review who appears as an expert, leader or innovator. Separate genuine professional
+            capabilities from inherited expectations about confidence, accent, clothing, gender,
+            disability, personality, culture or class.
+          </p>
+          <p class="measure">
+            Students should be able to develop as professionals without first becoming a narrow
+            version of the “ideal” engineer, clinician, teacher or academic.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" aria-labelledby="support-heading">
+      <div class="wrap support-box">
+        <div>
+          <p class="eyebrow">Human help is part of the design</p>
+          <h2 id="support-heading">Bring us the problem. You do not need the solution.</h2>
+          <p class="measure">
+            Talk with a learning designer about one activity, an assessment, recurring access needs,
+            a whole course, or a barrier that may need change across UQ.
+          </p>
+          <p class="measure">
+            This hub should be a two-way street: practical guidance goes out, and recurring barriers,
+            student experiences and staff insights come back in to shape wider change.
+          </p>
+        </div>
+
+        <div class="support-actions">
+          <a class="button dark" href="mailto:example@uq.edu.au?subject=Inclusive%20teaching%20support">
+            Request a conversation
+          </a>
+          <p class="small">
+            Example link only. Replace with the final ITaLI support form or service address.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="listen-heading">
+      <div class="wrap">
+        <p class="eyebrow">Listen → respond → improve</p>
+        <h2 id="listen-heading">Student voice should lead somewhere.</h2>
+        <div class="grid grid-3">
+          <article class="card card-cyan">
+            <h3>Ask early</h3>
+            <p>Gather feedback while there is still time to improve the experience for the students who gave it.</p>
+          </article>
+          <article class="card card-yellow">
+            <h3>Respond clearly</h3>
+            <p>Say what can change now, what needs investigation and what cannot change—and explain why.</p>
+          </article>
+          <article class="card card-pink">
+            <h3>Share the learning</h3>
+            <p>Use patterns across courses to identify barriers that need program-level or institutional action.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <strong>Inclusive Teaching Hub — example homepage</strong>
+        <p class="small measure">
+          Designed as a high-contrast, low-distraction, mobile-friendly prototype.
+          Content is illustrative and should be tested with disabled and neurodivergent users before launch.
+        </p>
+      </div>
+      <p class="small"><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+</body>
+</html>
