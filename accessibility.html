@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en-AU" data-theme="light" data-size="standard" data-spacing="standard">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Accessibility statement for the Inclusive Teaching Hub prototype.">
+  <meta name="color-scheme" content="light dark">
+  <title>Accessibility — Inclusive Teaching Hub</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+
+<ul class="skip-links" aria-label="Skip links">
+  <li><a href="#main-content">Skip to main content</a></li>
+  <li><a href="#support">Skip to support</a></li>
+</ul>
+<p class="service-strip"><strong>CHOOSE YOUR PATH:</strong> use a quick guide for one task or a framework tool for deeper course review.</p>
+<details class="display-panel">
+  <summary class="wrap">Display options</summary>
+  <div class="wrap display-options">
+    <div class="option-group">
+      <span class="option-label">Text size</span>
+      <button class="pref-button" type="button" data-setting="size" data-value="standard" aria-pressed="true">Standard</button>
+      <button class="pref-button" type="button" data-setting="size" data-value="large" aria-pressed="false">Larger</button>
+    </div>
+    <div class="option-group">
+      <span class="option-label">Spacing</span>
+      <button class="pref-button" type="button" data-setting="spacing" data-value="standard" aria-pressed="true">Standard</button>
+      <button class="pref-button" type="button" data-setting="spacing" data-value="roomy" aria-pressed="false">Roomier</button>
+    </div>
+    <div class="option-group">
+      <span class="option-label">Theme</span>
+      <button class="pref-button" type="button" data-setting="theme" data-value="light" aria-pressed="true">Light</button>
+      <button class="pref-button" type="button" data-setting="theme" data-value="dark" aria-pressed="false">Dark</button>
+      <button class="pref-button" type="button" data-setting="theme" data-value="contrast" aria-pressed="false">High contrast</button>
+    </div>
+    <button class="reset-button" id="reset-prefs" type="button">Reset display options</button>
+    <p class="pref-status" id="pref-status" aria-live="polite"></p>
+  </div>
+</details>
+
+<header>
+  <div class="wrap head">
+    <a class="brand" href="index.html" aria-label="Inclusive Teaching Hub home">
+      <span class="mark" aria-hidden="true">ITH</span>
+      <span>INCLUSIVE<br>TEACHING HUB</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul><li><a href="index.html">Home</a></li><li><a href="guides/index.html">Quick guides</a></li><li><a href="tools.html">Course review tools</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="accessibility.html" aria-current="page">Accessibility</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+<nav class='wrap crumbs' aria-label='Breadcrumb'><ol><li><a href='index.html'>Home</a></li><li aria-current='page'>Accessibility</li></ol></nav>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Accessibility statement</p>
+    <h1>Designed for strong accessibility, not declared perfect.</h1>
+    <p class="lead">This prototype restores the earlier accessibility design features and applies them across the tools and the exported report format.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2>Features included</h2>
+    <ul class="reading">
+      <li>Semantic headings, landmarks and navigation</li>
+      <li>Skip links and strong visible keyboard focus</li>
+      <li>Light, dark and high-contrast themes</li>
+      <li>Larger text and roomier spacing options</li>
+      <li>Responsive layouts that reflow at smaller widths and higher zoom</li>
+      <li>No reliance on colour alone for review status meaning</li>
+      <li>Accessible HTML report export with semantic headings and a structured table</li>
+      <li>Print styles for both the site and exported report</li>
+    </ul>
+    <p class="source-note">Formal WCAG 2.2 conformance cannot be claimed without manual testing, screen-reader testing, voice-control testing and user testing with disabled and neurodivergent people.</p>
+  </div>
+</section>
+<section id="support">
+  <div class="wrap support">
+    <div>
+      <h2>Accessibility still needs ongoing testing.</h2>
+      <p>Even strong prototypes need review with real users, assistive technologies and final platform conditions.</p>
+    </div>
+    <div><a class="button" href="tools.html">Go to tools</a></div>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <strong>Inclusive Teaching Hub prototype</strong><br>
+      <a href="guides/index.html">Quick guides</a> ·
+      <a href="tools.html">Course review tools</a> ·
+      <a href="case-studies.html">Case studies</a> ·
+      <a href="accessibility.html">Accessibility</a>
+    </div>
+    <div class="small">Task-first guidance + UQ framework review.</div>
+  </div>
+</footer>
+
+</body>
+</html>

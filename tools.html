@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html data-size="standard" data-spacing="standard" data-theme="light" lang="en-AU">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Redesigned review tools built around the UQ framework." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<title>Tools — Inclusive Teaching Hub</title>
+<link href="assets/styles.css" rel="stylesheet"/>
+<script defer="" src="assets/site.js"></script>
+</head>
+<body>
+<ul aria-label="Skip links" class="skip-links">
+<li><a href="#main-content">Skip to main content</a></li>
+<li><a href="#support">Skip to support</a></li>
+</ul>
+<p class="service-strip"><strong>CHOOSE YOUR PATH:</strong> use a quick guide for one task or a framework tool for deeper course review.</p>
+<details class="display-panel">
+<summary class="wrap">Display options</summary>
+<div class="wrap display-options">
+<div class="option-group">
+<span class="option-label">Text size</span>
+<button aria-pressed="true" class="pref-button" data-setting="size" data-value="standard" type="button">Standard</button>
+<button aria-pressed="false" class="pref-button" data-setting="size" data-value="large" type="button">Larger</button>
+</div>
+<div class="option-group">
+<span class="option-label">Spacing</span>
+<button aria-pressed="true" class="pref-button" data-setting="spacing" data-value="standard" type="button">Standard</button>
+<button aria-pressed="false" class="pref-button" data-setting="spacing" data-value="roomy" type="button">Roomier</button>
+</div>
+<div class="option-group">
+<span class="option-label">Theme</span>
+<button aria-pressed="true" class="pref-button" data-setting="theme" data-value="light" type="button">Light</button>
+<button aria-pressed="false" class="pref-button" data-setting="theme" data-value="dark" type="button">Dark</button>
+<button aria-pressed="false" class="pref-button" data-setting="theme" data-value="contrast" type="button">High contrast</button>
+</div>
+<button class="reset-button" id="reset-prefs" type="button">Reset display options</button>
+<p aria-live="polite" class="pref-status" id="pref-status"></p>
+</div>
+</details>
+<header>
+<div class="wrap head">
+<a aria-label="Inclusive Teaching Hub home" class="brand" href="index.html">
+<span aria-hidden="true" class="mark">ITH</span>
+<span>INCLUSIVE<br/>TEACHING HUB</span>
+</a>
+<nav aria-label="Main navigation">
+<ul><li><a href="index.html">Home</a></li><li><a href="guides/index.html">Quick guides</a></li><li><a aria-current="page" href="tools.html">Course review tools</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="accessibility.html">Accessibility</a></li></ul>
+</nav>
+</div>
+</header>
+<main id="main-content">
+<nav aria-label="Breadcrumb" class="wrap crumbs"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Tools</li></ol></nav>
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<p class="eyebrow">Redesigned review suite</p>
+<h1>Tools redesigned around the UQ framework.</h1>
+<p class="lead">These tools retain the accessible design language and the helpful implementation mindset from the UNSW guide, but reorganise review around your own framework. Instead of a long generic checklist, staff can now review the course using your three sections and four interacting dimensions.</p>
+</div>
+<aside class="toc">
+<h2>How to use the tools</h2>
+<ol>
+<li>Select the level that best describes the current course.</li>
+<li>Add notes about barriers, strengths or context.</li>
+<li>Look for patterns across the dimensions.</li>
+<li>Generate an accessible HTML report.</li>
+</ol>
+</aside>
+</div>
+</section>
+<section class="framework-strip">
+<div class="wrap">
+<p class="framework-principle">
+<strong>Key tenet</strong>
+  These dimensions interact. A student may face barriers across several categories simultaneously,
+  and the strongest inclusive practice addresses them in combination rather than ticking each off independently.
+  When using this tool, consider your course or teaching as a whole and look for patterns across dimensions rather than
+  treating each row in isolation.
+</p>
+<p class="source-note">This prototype keeps the best aspects of the UNSW implementation approach by supporting a pathway from immediate baseline improvements through deeper redesign and finally more embedded and holistic practice. The exported report groups actions into those same implementation horizons.</p>
+</div>
+</section>
+<section id="quick-finder">
+<div class="wrap">
+<div class="quick-finder" data-uq-finder="">
+<p class="eyebrow">Quick finder</p>
+<h2>What part of the course needs attention?</h2>
+<div class="finder-fields">
+<div>
+<label for="finder-topic">Section or dimension</label>
+<select data-finder-topic="" id="finder-topic">
+<option value="">Select a section or dimension</option><optgroup label="Course and Program Design"><option value="representation-design">R — representation in curriculum and design</option><option value="equity-design">E — equity, flexibility and material conditions</option><option value="access-design">A — accessibility and agency in materials and pathways</option><option value="language-design">L — language and literacies in course design</option></optgroup><optgroup label="Teaching"><option value="representation-teaching">R — representation and identity in live teaching</option><option value="equity-teaching">E — equity in attendance, support and participation</option><option value="access-teaching">A — accessible delivery and meaningful participation modes</option><option value="language-teaching">L — language, pace and hidden norms in teaching</option></optgroup><optgroup label="Assessment"><option value="representation-assessment">R — representation in what counts as valid evidence</option><option value="equity-assessment">E — equity in conditions, costs and flexibility</option><option value="access-assessment">A — accessible formats and student agency</option><option value="language-assessment">L — language and literacies in assessment</option></optgroup><optgroup label="Whole course"><option value="whole-course">Review all sections together</option></optgroup>
+</select>
+</div>
+<div>
+<label for="finder-depth">Implementation depth</label>
+<select data-finder-depth="" id="finder-depth">
+<option value="baseline">Start now</option>
+<option value="develop">Develop next</option>
+<option value="holistic">Embed holistically</option>
+</select>
+</div>
+</div>
+<p><button class="button" data-finder-button="" type="button">Suggest my next step</button></p>
+<div aria-live="polite" class="finder-result" data-finder-result="" hidden="" tabindex="-1"></div>
+</div>
+</div>
+</section>
+<section>
+<div class="wrap">
+<p class="eyebrow">Review tools</p>
+<h2>Choose a whole-course review or a section tool.</h2>
+<div class="grid g2">
+<article class="card tool-suite-card">
+<span class="num">SAP</span>
+<p class="tool-type">SPECIFIC ADJUSTMENT PATHWAY</p>
+<h3>Start from a common Student Access Plan adjustment</h3>
+<p>Select a common adjustment, implement it well and connect it to the relevant UQ framework review areas.</p>
+<a class="stretch" href="guides/common-adjustments.html">Browse common adjustments</a>
+</article><article class="card tool-suite-card">
+<span class="num">00</span>
+<p class="tool-type">WHOLE-COURSE UQ REVIEW</p>
+<h3>Whole-course UQ framework review</h3>
+<p>Bring the three sections and four dimensions together. Look for patterns across design, teaching and assessment rather than reviewing each item in isolation.</p>
+<a class="stretch" href="tools/whole-course-uq-framework.html">Open tool</a>
+</article>
+<article class="card tool-suite-card">
+<span class="num">1</span>
+<p class="tool-type">SECTION-SPECIFIC REVIEW</p>
+<h3>Section 1: Course and Program Design</h3>
+<p>What is included in the curriculum, how the course or program is structured, and the assumptions built into its design.</p>
+<a class="stretch" href="tools/course-program-design.html">Open tool</a>
+</article>
+<article class="card tool-suite-card">
+<span class="num">2</span>
+<p class="tool-type">SECTION-SPECIFIC REVIEW</p>
+<h3>Section 2: Teaching</h3>
+<p>What happens in lectures, tutorials, online sessions and placement supervision. The live, relational dimension of inclusive practice.</p>
+<a class="stretch" href="tools/teaching-review.html">Open tool</a>
+</article>
+<article class="card tool-suite-card">
+<span class="num">3</span>
+<p class="tool-type">SECTION-SPECIFIC REVIEW</p>
+<h3>Section 3: Assessment</h3>
+<p>How student learning is measured, including task design, conditions, criteria, and the assumptions built into how evidence of learning is defined and evaluated.</p>
+<a class="stretch" href="tools/assessment-review.html">Open tool</a>
+</article>
+</div>
+</div>
+</section>
+<section id="support">
+<div class="wrap support">
+<div>
+<h2>Each tool now exports a better report.</h2>
+<p>The export is a self-contained accessible HTML file with semantic headings, a readable summary, pattern analysis, a full review table and print styles.</p>
+</div>
+<div><a class="button" href="tools/whole-course-uq-framework.html">Try the whole-course tool</a></div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap foot">
+<div>
+<strong>Inclusive Teaching Hub prototype</strong><br/>
+<a href="guides/index.html">Quick guides</a> ·
+      <a href="tools.html">Course review tools</a> ·
+      <a href="case-studies.html">Case studies</a> ·
+      <a href="accessibility.html">Accessibility</a>
+</div>
+<div class="small">Task-first guidance + UQ framework review.</div>
+</div>
+</footer>
+</body>
+</html>
