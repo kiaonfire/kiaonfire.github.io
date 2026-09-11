@@ -1,25 +1,14 @@
-# UQ Inclusive Teaching Hub — vision-first / Inclusive Teaching Framework prototype
+# UQ Inclusive Teaching Hub — three comparison options (question-led revision)
 
-This version uses **Inclusive Teaching Framework** as the public-facing name for the framework. The REAL acronym is used sparingly as a memory aid for its four areas: Respect, Equity, Accessibility and Language.
+This revision keeps the three information-architecture options but restores the UQ-aligned visual language of the earlier attached prototype.
 
-## Homepage changes
-- Opens with the vision for inclusive teaching rather than the framework/tool.
-- Introduces the Inclusive Teaching Framework as the way to put the vision into practice.
-- Curriculum, Teaching and Assessment are presented as full-width feature sections with photography and direct links to popular tasks.
-- Quick entry points remain available for staff who arrive with a specific problem.
+## Changes in this revision
 
-## Framework pages
-Curriculum, Teaching and Assessment retain the task-first structure:
-1. quick practical how-tos;
-2. deeper exploration through Respect, Equity, Accessibility and Language.
+- Every individual Inclusive Teaching Framework practice is now presented as a concise self-review **question** everywhere it appears.
+- Option 1 task cards and framework links have been stripped back to the useful label/question only, removing explanatory subtext and framework badges from the area-page cards.
+- Quick how-to pages and framework-practice pages now share a consistent sequence: **Why this matters → What this looks like → Steps to address it → Example in practice → More resources**.
+- Quick how-to pages then finish with **Use these framework practices**.
+- **Example in practice** has been restored as its own section on both page types, immediately above More resources.
+- The earlier UQ-aligned typography, spacing, page-title bands, cards, navigation, feature bands, puzzle Why page and overall visual treatment have been restored as the visual base for all three options.
 
-## Photography
-Homepage photography uses free Unsplash images by Vitaly Gariev. The images are referenced remotely so an internet connection is required for them to display in this static prototype.
-
-
-## Homepage task update
-The standalone Quick entry points page and problem-first quick pages have been removed. The homepage now surfaces four high-use tasks directly inside each of the three main feature bands: Curriculum, Teaching and Assessment. The full task sets remain available on the three area pages.
-
-
-## Dignity-led Why page
-The Why this matters page now uses a dignity-led rationale, links the Inclusive Teaching Framework to Respect, Equity, Accessibility and Language, and includes concise Australian Universities Accord policy context.
+The three option behaviours remain: Option 1 is task + framework, Option 2 is low-link, and Option 3 is the fastest-route / lower cognitive-load layout.

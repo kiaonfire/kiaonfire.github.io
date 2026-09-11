@@ -1,19 +1,18 @@
-
-document.addEventListener('DOMContentLoaded',()=>{
-  const nav=document.querySelector('.local-nav');
-  const menu=document.querySelector('.menu-button');
-  if(nav&&menu){
-    menu.addEventListener('click',()=>{
-      const open=nav.classList.toggle('open');
-      menu.setAttribute('aria-expanded',String(open));
-    });
+(function(){
+  const root=document.documentElement;
+  const key='inclusive-teaching-hub-design-option';
+  function current(){ const d=root.getAttribute('data-design'); return (d==='2'||d==='3')?d:'1'; }
+  function apply(n, announce){
+    if(!['1','2','3'].includes(n)) n='1';
+    root.setAttribute('data-design',n);
+    try{ localStorage.setItem(key,n); }catch(e){}
+    document.querySelectorAll('[data-design-option]').forEach(btn=>btn.setAttribute('aria-pressed', btn.dataset.designOption===n ? 'true':'false'));
+    const st=document.getElementById('design-option-status'); if(st && announce) st.textContent='Option '+n+' selected.';
   }
-  const search=document.querySelector('[data-quick-search]');
-  const cards=[...document.querySelectorAll('[data-quick-card]')];
-  if(search&&cards.length){
-    search.addEventListener('input',()=>{
-      const q=search.value.toLowerCase().trim();
-      cards.forEach(c=>{c.hidden=!c.innerText.toLowerCase().includes(q);});
-    });
-  }
-});
+  document.addEventListener('DOMContentLoaded',()=>{
+    apply(current(),false);
+    document.querySelectorAll('[data-design-option]').forEach(btn=>btn.addEventListener('click',()=>apply(btn.dataset.designOption,true)));
+    const menu=document.querySelector('.menu-button'), nav=document.getElementById('hub-navigation');
+    if(menu&&nav){menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));nav.classList.toggle('is-open',!open);});}
+  });
+})();
