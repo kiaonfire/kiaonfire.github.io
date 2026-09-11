@@ -1,14 +1,9 @@
-# UQ Inclusive Teaching Hub — three comparison options (question-led revision)
+# Inclusive Teaching Hub — three design options
 
-This revision keeps the three information-architecture options but restores the UQ-aligned visual language of the earlier attached prototype.
+This prototype keeps one shared UQ-aligned visual language while testing three information-design approaches.
 
-## Changes in this revision
+- **Option 1:** full task-first version with the most explanation and pathways.
+- **Option 2:** visual/consolidated version. Guidance pages use image-led headers and compact visual cards; the Why page uses imagery, short tiles and key messages.
+- **Option 3:** reduced-cognitive-load version informed by the Neurodiversity Design System. It uses one-column flows, short labels, bite-sized content, predictable sequencing, fewer visible links, and progressive disclosure for secondary material.
 
-- Every individual Inclusive Teaching Framework practice is now presented as a concise self-review **question** everywhere it appears.
-- Option 1 task cards and framework links have been stripped back to the useful label/question only, removing explanatory subtext and framework badges from the area-page cards.
-- Quick how-to pages and framework-practice pages now share a consistent sequence: **Why this matters → What this looks like → Steps to address it → Example in practice → More resources**.
-- Quick how-to pages then finish with **Use these framework practices**.
-- **Example in practice** has been restored as its own section on both page types, immediately above More resources.
-- The earlier UQ-aligned typography, spacing, page-title bands, cards, navigation, feature bands, puzzle Why page and overall visual treatment have been restored as the visual base for all three options.
-
-The three option behaviours remain: Option 1 is task + framework, Option 2 is low-link, and Option 3 is the fastest-route / lower cognitive-load layout.
+The option selection persists between pages using localStorage.
