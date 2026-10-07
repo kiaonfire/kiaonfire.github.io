@@ -51,3 +51,51 @@
     }));
   });
 })();
+
+
+// Drupal-style ITaLI navigation and prototype analytics helpers.
+(function(){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.querySelector('.uq-site-menu');
+    const n=document.getElementById('uq-site-links');
+    if(b&&n){b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!open));n.classList.toggle('is-open',!open);});}
+    // Make the currently selected design available as a Clarity custom tag.
+    const active=document.documentElement.getAttribute('data-design')||'1';
+    if(typeof window.clarity==='function'){
+      window.clarity('set','designOption','Option '+active);
+      window.clarity('event','prototype_loaded_option_'+active);
+    }
+    document.querySelectorAll('[data-design-option]').forEach(btn=>btn.addEventListener('click',()=>{
+      const n=btn.dataset.designOption;
+      if(typeof window.clarity==='function'){
+        window.clarity('set','designOption','Option '+n);
+        window.clarity('event','design_option_'+n);
+      }
+    }));
+  });
+})();
+
+
+// UQ-style local-navigation mobile toggle.
+(function(){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.querySelector('.uq-local-nav-toggle');
+    const n=document.querySelector('.uq-local-nav');
+    if(b&&n){
+      b.addEventListener('click',()=>{
+        const open=b.getAttribute('aria-expanded')==='true';
+        b.setAttribute('aria-expanded',String(!open));
+        n.classList.toggle('is-open',!open);
+      });
+    }
+    const menu=document.querySelector('.uq-header__menu-toggle button');
+    const mobile=document.getElementById('global-mobile-nav');
+    if(menu&&mobile){
+      menu.addEventListener('click',()=>{
+        const open=menu.getAttribute('aria-expanded')==='true';
+        menu.setAttribute('aria-expanded',String(!open));
+        mobile.classList.toggle('is-open',!open);
+      });
+    }
+  });
+})();

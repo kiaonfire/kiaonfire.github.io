@@ -759,3 +759,4642 @@ html[data-design="1"] body.page-why .accord-callout{
   html[data-design="2"] .framework-checklist--visual .framework-checklist__items{grid-template-columns:1fr}
   .visual-sequence{font-size:.85rem;line-height:1.5}
 }
+
+
+/* =============================================================
+   UQ Drupal 10 visualisation layer — 16 Sep 2026
+   Models the current UQ Drupal shell and content patterns while
+   preserving the prototype's three information-architecture options.
+   ============================================================= */
+:root{
+  --uq-purple:#51247a;
+  --uq-purple-dark:#40205d;
+  --uq-purple-deep:#2f163f;
+  --uq-purple-light:#e8dff0;
+  --uq-magenta:#962a8b;
+  --uq-black:#19151c;
+  --uq-grey-900:#333034;
+  --uq-grey-800:#4f4b50;
+  --uq-grey-700:#69666b;
+  --uq-grey-500:#99969a;
+  --uq-grey-300:#d7d5d7;
+  --uq-grey-200:#e5e3e5;
+  --uq-grey-100:#f1f0f1;
+  --uq-grey-50:#f7f6f7;
+  --uq-white:#fff;
+  --max:1200px;
+  --reading:760px;
+}
+html{scroll-padding-top:1rem}
+body{font-family:Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.55;color:var(--uq-black);background:#fff;letter-spacing:0}
+.uq-shell{width:min(calc(100% - 2rem),var(--max));margin-inline:auto}
+.inner,.footer-inner{width:min(calc(100% - 2rem),var(--max));margin-inline:auto}
+.uq-main{width:min(calc(100% - 2rem),var(--max));margin-inline:auto;padding:0 0 4.5rem}
+
+/* Current UQ-style global shell */
+.uq-global{background:var(--uq-purple);color:white}
+.uq-global a{color:#fff;text-decoration:none}
+.uq-global__utility{background:var(--uq-purple-dark);border-bottom:1px solid rgba(255,255,255,.16)}
+.uq-global__utility .uq-shell{min-height:34px;display:flex;align-items:center;justify-content:flex-end}
+.uq-global__utility nav{display:flex;gap:1.65rem;font-size:.8125rem}
+.uq-global__utility a:hover,.uq-global__primary a:hover,.uq-global__search:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.2em}
+.uq-global__main{background:linear-gradient(90deg,#51247a 0%,#51247a 82%,#5b267f 100%)}
+.uq-global__main-inner{min-height:86px;display:flex;align-items:center;gap:2.1rem}
+.uq-mark{display:flex;align-items:center;gap:.75rem;flex:0 0 auto;min-width:255px}
+.uq-mark__shield{width:42px;height:50px;color:#fff;flex:none}
+.uq-mark__words{display:flex;flex-direction:column;font-family:Merriweather,Georgia,serif;font-weight:700;line-height:1.05;font-size:1.1rem;letter-spacing:-.01em}
+.uq-mark__words small{font-family:Roboto,Arial,sans-serif;font-size:.5rem;text-transform:uppercase;letter-spacing:.22em;font-weight:500;margin-top:.35rem}
+.uq-global__primary{display:flex;align-items:stretch;align-self:stretch;gap:.15rem;margin-left:auto}
+.uq-global__primary a{display:flex;align-items:center;padding:0 .75rem;font-size:.92rem}
+.uq-global__search{display:flex;align-items:center;gap:.4rem;padding:.75rem .2rem .75rem .8rem;font-size:.92rem;white-space:nowrap}
+.uq-global__search span{font-size:1.5rem;line-height:1;transform:rotate(-20deg)}
+.uq-site-title{background:#fff}
+.uq-site-title .uq-shell{min-height:78px;display:flex;align-items:center}
+.uq-site-title a{font-family:Montserrat,Roboto,Arial,sans-serif;color:var(--uq-purple);text-decoration:none;font-size:1.4rem;font-weight:500;line-height:1.25}
+.uq-site-title a:hover{text-decoration:underline}
+.uq-site-nav{border-top:1px solid var(--uq-grey-200);border-bottom:1px solid var(--uq-grey-300);background:#fff}
+.uq-site-nav__inner{display:flex;align-items:stretch;min-height:54px}
+.uq-site-nav__links{display:flex;align-items:stretch;flex-wrap:wrap}
+.uq-site-nav__links a{display:flex;align-items:center;color:var(--uq-black);text-decoration:none;padding:0 .75rem;border-bottom:4px solid transparent;font-size:.92rem;white-space:nowrap}
+.uq-site-nav__links a:hover{color:var(--uq-purple);background:var(--uq-grey-50)}
+.uq-site-nav__links a.is-active{color:var(--uq-purple);border-bottom-color:var(--uq-purple)}
+.uq-site-menu{display:none}
+
+/* Hub subnavigation, deliberately quiet so it reads as an in-site section nav. */
+.uq-hub-nav{background:var(--uq-grey-50);border-bottom:1px solid var(--uq-grey-200)}
+.uq-hub-nav__inner{display:flex;align-items:stretch;min-height:52px}
+.uq-hub-nav__title{display:flex;align-items:center;color:var(--uq-black);font-family:Montserrat,Roboto,sans-serif;font-weight:600;text-decoration:none;padding-right:1.4rem;margin-right:.45rem;white-space:nowrap}
+.uq-hub-nav .nav-links{display:flex;align-items:stretch}
+.uq-hub-nav .nav-links a{display:flex;align-items:center;padding:0 .8rem;color:var(--uq-black);text-decoration:none;border-bottom:3px solid transparent;font-size:.9rem}
+.uq-hub-nav .nav-links a:hover{color:var(--uq-purple);background:#fff}
+.uq-hub-nav .nav-links a[aria-current="page"]{color:var(--uq-purple);border-bottom-color:var(--uq-purple);font-weight:500}
+
+/* Prototype control is visually separate from the simulated production page. */
+.design-switcher{background:#fff;border-bottom:1px solid var(--uq-grey-300)}
+.design-switcher__inner{min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;padding-top:.5rem;padding-bottom:.5rem}
+.design-switcher__intro{display:flex;align-items:baseline;gap:.65rem;min-width:0}
+.design-switcher__intro strong{font-size:.85rem;color:var(--uq-grey-900)}
+.design-switcher__intro span{font-size:.82rem;color:var(--uq-grey-700)}
+.option-toggle{display:inline-flex;border:1px solid var(--uq-grey-300);border-radius:2px;overflow:hidden;background:#fff;flex:none}
+.option-toggle button{min-height:38px;border:0;border-right:1px solid var(--uq-grey-300);background:#fff;color:var(--uq-purple);padding:.45rem .85rem;cursor:pointer;font-weight:500;font-size:.875rem}
+.option-toggle button:last-child{border-right:0}
+.option-toggle button:hover{background:var(--uq-purple-light)}
+.option-toggle button[aria-pressed="true"]{background:var(--uq-purple);color:#fff}
+
+/* Typography/content aligns to current UQ Drupal patterns. */
+h1,h2,h3,h4{font-family:Montserrat,Roboto,Arial,sans-serif;color:var(--uq-black);font-weight:500;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,3vw,2.7rem);line-height:1.12;margin:0 0 1rem}
+h2{font-size:clamp(1.55rem,2vw,2rem);line-height:1.2}
+h3{font-size:1.25rem;line-height:1.3}
+p,li{font-size:1rem}
+.lead{font-size:1.15rem;line-height:1.55;color:var(--uq-grey-900);max-width:56rem}
+.eyebrow{font-family:Roboto,Arial,sans-serif;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--uq-purple);font-weight:700}
+a{color:var(--uq-purple);text-underline-offset:.16em}
+
+/* Standard Drupal breadcrumbs. */
+.uq-breadcrumbs{padding:1rem 0 .85rem;font-size:.86rem;color:var(--uq-grey-700)}
+.uq-breadcrumbs ol{display:flex;flex-wrap:wrap;gap:.25rem;list-style:none;margin:0;padding:0}
+.uq-breadcrumbs li{font-size:.86rem;display:flex;align-items:center}
+.uq-breadcrumbs li:not(:last-child)::after{content:"›";color:var(--uq-grey-500);margin:0 .45rem}
+.uq-breadcrumbs a{color:var(--uq-purple)}
+.uq-breadcrumbs [aria-current="page"] span{color:var(--uq-grey-700)}
+
+/* Homepage: standard UQ landing-page rhythm + image cards, modelled on current Library Drupal page. */
+body.page-home .uq-main{padding-top:0}
+body.page-home .hero-home{width:auto;margin:0;background:#fff;border:0;display:flex;flex-direction:column}
+body.page-home .uq-drupal-hero-media{order:0;margin:0 0 2rem;width:100vw;margin-left:calc(50% - 50vw);position:relative;background:var(--uq-grey-100)}
+body.page-home .uq-drupal-hero-media img{display:block;width:100%;height:clamp(260px,30vw,460px);object-fit:cover;object-position:center 43%}
+body.page-home .uq-drupal-hero-media figcaption{position:absolute;right:1rem;bottom:.7rem;background:rgba(25,21,28,.75);color:white;padding:.25rem .5rem;font-size:.72rem}
+body.page-home .hero-copy{order:1;width:100%;margin:0;padding:0 0 1.75rem;max-width:850px}
+body.page-home .hero-copy .eyebrow{margin-bottom:.7rem}
+body.page-home .hero-copy h1{max-width:24ch;font-size:clamp(2.25rem,4vw,3.25rem)}
+body.page-home .hero-actions{margin-top:1.35rem}
+.primary-button,.secondary-button{border-radius:2px;box-shadow:none;font-weight:500}
+.primary-button{background:var(--uq-purple);border-color:var(--uq-purple)}
+.primary-button:hover{background:var(--uq-purple-dark);border-color:var(--uq-purple-dark)}
+
+/* Options 1 & 2 homepage become standard UQ image cards rather than bespoke bands. */
+body.page-home .feature-areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 1.75rem;margin-top:2rem}
+body.page-home .feature-areas>.section-head{grid-column:1/-1;margin:0 0 .35rem}
+body.page-home .feature-band,body.page-home .feature-band--reverse{display:flex;flex-direction:column;min-width:0;margin:0;padding:0!important;border:0!important;background:#fff!important;box-shadow:none!important}
+body.page-home .feature-media{order:0;margin:0 0 1.1rem;aspect-ratio:16/10;background:var(--uq-grey-100);overflow:hidden}
+body.page-home .feature-media img{width:100%;height:100%;object-fit:cover;display:block}
+body.page-home .feature-media figcaption{font-size:.7rem;color:var(--uq-grey-700);padding:.25rem 0 0}
+body.page-home .feature-copy{order:1;display:flex;flex-direction:column;align-items:flex-start;flex:1;padding:0!important}
+body.page-home .feature-copy h2{font-size:1.35rem;margin:.15rem 0 .7rem}
+body.page-home .feature-copy p{color:var(--uq-grey-800)}
+body.page-home .feature-links{display:flex;flex-direction:column;gap:.45rem;margin:.25rem 0 1.25rem}
+body.page-home .feature-links a{font-size:.94rem}
+body.page-home .feature-copy>.primary-button{margin-top:auto}
+html[data-design="2"] body.page-home .feature-links{display:none!important}
+html[data-design="2"] body.page-home .feature-copy>.primary-button{margin-top:auto}
+
+/* Option 3 homepage: same Drupal component vocabulary, lower-density IA. */
+body.page-home .option3-home{margin-top:2rem}
+body.page-home .option3-area-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+body.page-home .option3-area-card{border:0;border-top:4px solid var(--uq-purple);background:var(--uq-grey-50);padding:1.4rem;text-decoration:none;color:var(--uq-black);min-height:170px;display:flex;flex-direction:column}
+body.page-home .option3-area-card h3{font-size:1.35rem;color:var(--uq-purple);margin-bottom:.5rem}
+body.page-home .option3-area-card p{margin:0 0 1rem;color:var(--uq-grey-800)}
+body.page-home .option3-area-card .arrow{margin-top:auto;color:var(--uq-purple);font-weight:500}
+body.page-home .framework-home-head{margin-top:3.25rem}
+body.page-home .option3-real-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+body.page-home .option3-real-card{background:#fff;border-top:1px solid var(--uq-grey-300);border-bottom:1px solid var(--uq-grey-300);padding:1.25rem .25rem;text-decoration:none;color:var(--uq-black)}
+body.page-home .option3-real-card h3{color:var(--uq-purple);font-size:1.15rem}
+body.page-home .option3-real-card p{font-size:.92rem;color:var(--uq-grey-800);margin:0}
+
+/* Area pages: standard white title region and link-list components. */
+body.page-area .page-hero{width:auto;margin:0;background:#fff;border:0;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:3rem;padding:1.2rem 0 2.25rem}
+body.page-area .page-hero .aside{background:var(--uq-grey-50);border:0;border-top:4px solid var(--uq-purple);padding:1.25rem}
+body.page-area .task-start{border-top:1px solid var(--uq-grey-200);padding-top:2.25rem;margin-top:0}
+body.page-area .task-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+body.page-area .task-card{background:#fff!important;border:1px solid var(--uq-grey-300)!important;border-radius:0!important;padding:1.05rem 1.15rem;min-height:88px;text-decoration:none;display:flex;align-items:center}
+body.page-area .task-card:hover{border-color:var(--uq-purple)!important;background:var(--uq-grey-50)!important}
+body.page-area .task-card h3{font-size:1rem;color:var(--uq-purple);margin:0}
+body.page-area .holistic-intro .kicker-box{background:var(--uq-grey-50);border:0;border-left:4px solid var(--uq-purple);padding:1.3rem}
+body.page-area .theme-jumps{display:flex;flex-wrap:wrap;gap:.45rem}
+body.page-area .theme-jumps a{background:#fff;border:1px solid var(--uq-grey-300);padding:.45rem .65rem;text-decoration:none}
+body.page-area .area-section{border-top:1px solid var(--uq-grey-300);padding-top:2rem;margin-top:2.6rem}
+body.page-area .theme-compact-head{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;margin-bottom:1rem}
+body.page-area .theme-badge{background:none;border:0;border-radius:0;padding:0;margin:0 0 .4rem;text-transform:none;letter-spacing:0;color:var(--uq-purple);font-weight:700;font-size:.82rem}
+body.page-area .compact-practice-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 1.5rem}
+body.page-area .compact-practice-link{background:#fff!important;border:0!important;border-top:1px solid var(--uq-grey-200)!important;padding:1rem 0!important;text-decoration:none;min-height:0}
+body.page-area .compact-practice-link h3{font-size:1rem;color:var(--uq-purple);margin:0}
+body.page-area .compact-practice-link:hover h3{text-decoration:underline}
+html[data-design="2"] body.page-area .compact-practice-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+html[data-design="3"] body.page-area .page-hero{grid-template-columns:1fr;padding-bottom:1.25rem}
+html[data-design="3"] body.page-area .task-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+html[data-design="3"] body.page-area .compact-practice-list{grid-template-columns:1fr;max-width:780px}
+
+/* Detailed framework + how-to pages: a Drupal article rhythm rather than an app panel. */
+body.page-framework .page-hero,body.page-howto .page-hero{width:auto;margin:0;background:#fff;border:0;padding:1.2rem 0 2.2rem;grid-template-columns:minmax(0,1fr) 285px;gap:3rem}
+body.page-framework .guidance-meta,body.page-howto .guidance-meta{background:var(--uq-grey-50);border:0;border-top:4px solid var(--uq-purple);padding:1.1rem 1.2rem}
+body.page-framework .guidance-layout,body.page-howto .guidance-layout{margin-top:.25rem;display:block;max-width:880px}
+body.page-framework .practice-main,body.page-howto .practice-main{max-width:820px}
+.guidance-section{padding:1.65rem 0;border:0;border-top:1px solid var(--uq-grey-200);background:#fff!important}
+.guidance-section:first-child{border-top:3px solid var(--uq-purple)}
+.guidance-section>h2{font-size:1.45rem;margin-bottom:.85rem}
+.section-icon{color:var(--uq-purple);width:1.05em;height:1.05em;margin-right:.55rem}
+.action-list{display:grid;gap:.5rem}
+.action-item{display:grid;grid-template-columns:2.2rem 1fr;gap:.75rem;align-items:start;padding:.7rem 0;border-top:1px solid var(--uq-grey-200);background:#fff!important}
+.action-item:first-child{border-top:0}
+.action-num{width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;background:var(--uq-purple);color:#fff;font-weight:700;font-size:.85rem}
+.practice-example{background:var(--uq-grey-50);border-left:4px solid var(--uq-purple);padding:1.15rem 1.25rem}
+.student-experience{background:var(--uq-grey-50);padding:1rem 1.2rem;margin-top:1rem}
+.framework-checklist,.guidance-final-check{border:0!important;border-top:3px solid var(--uq-purple)!important;border-bottom:1px solid var(--uq-grey-300)!important;background:var(--uq-grey-50)!important;padding:1.25rem 1.35rem!important;border-radius:0!important}
+.framework-checklist__items{display:grid;gap:.35rem}
+.framework-checklist__item{background:#fff!important;border:1px solid var(--uq-grey-200);padding:.75rem .85rem!important}
+.framework-checklist__progress{color:var(--uq-purple);font-weight:700}
+.more-resources{margin-top:1.25rem}
+.resource-links{padding-left:1.2rem}
+
+/* Option 2 detailed pages: image-led but still standard UQ cards/sections. */
+.alt-guide--visual{max-width:100%}
+.alt-guide-hero{display:grid;grid-template-columns:minmax(0,42%) minmax(0,1fr);gap:2.5rem;align-items:center;margin:0 0 2.25rem;padding:1rem 0 2.25rem;border-bottom:1px solid var(--uq-grey-200)}
+.alt-guide-hero figure{margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--uq-grey-100)}
+.alt-guide-hero figure img{width:100%;height:100%;object-fit:cover;display:block}
+.alt-guide-hero figcaption{font-size:.7rem;color:var(--uq-grey-700);padding-top:.25rem}
+.visual-sequence{border-top:3px solid var(--uq-purple);border-bottom:1px solid var(--uq-grey-200);padding:.8rem 0;color:var(--uq-grey-800);font-weight:600}
+.visual-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2rem}
+.visual-guide-card{border:0!important;border-top:1px solid var(--uq-grey-300)!important;border-radius:0!important;padding:1.35rem 0!important;background:#fff!important}
+.visual-guide-card h2{color:var(--uq-purple);font-size:1.18rem}
+.visual-guide-card--example{background:var(--uq-grey-50)!important;padding:1.35rem!important}
+html[data-design="2"] .framework-checklist--visual{background:var(--uq-grey-50)!important;border-top:3px solid var(--uq-purple)!important}
+html[data-design="2"] .framework-checklist--visual .framework-checklist__items{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* Option 3 detailed pages: predictable narrow reading lane, no decorative card field. */
+.alt-guide--focus{max-width:760px;margin:0 auto}
+.focus-guide-hero{padding:1rem 0 1.8rem;border-bottom:3px solid var(--uq-purple)}
+.focus-sequence{padding:.85rem 0;margin:0;color:var(--uq-grey-700);border-bottom:1px solid var(--uq-grey-200)}
+.alt-guide--focus .focus-block{padding:1.55rem 0;border-bottom:1px solid var(--uq-grey-200)}
+.alt-guide--focus .focus-block h2{font-size:1.3rem}
+.alt-guide--focus .focus-example{background:var(--uq-grey-50);border-left:4px solid var(--uq-purple);padding:1.2rem}
+html[data-design="3"] .framework-checklist--focus{background:var(--uq-grey-50)!important;border-top:3px solid var(--uq-purple)!important;padding:1.2rem!important}
+html[data-design="3"] .focus-more{border-top:1px solid var(--uq-grey-300);border-bottom:1px solid var(--uq-grey-300)}
+
+/* Framework dimension aggregator pages. */
+body.page-framework-overview .page-hero,body.page-theme .page-hero{width:auto;margin:0;background:#fff;border:0;padding:1.2rem 0 2rem}
+.stream-grid,.framework-stream-grid{gap:1.5rem}
+.stream-card,.framework-stream-card{border:0!important;border-top:4px solid var(--uq-purple)!important;background:var(--uq-grey-50)!important;border-radius:0!important;box-shadow:none!important}
+
+/* Why page: use editorial sections and UQ rules rather than a custom microsite shell. */
+body.page-why .uq-main{max-width:1200px}
+body.page-why .dignity-hero,body.page-why .why-visual-hero,body.page-why .focus-why-hero{width:auto;margin:0;background:#fff;border:0;padding:1.25rem 0 2.25rem}
+body.page-why .dignity-hero{display:block}
+body.page-why .dignity-hero h1,body.page-why .why-visual-hero h1,body.page-why .focus-why-hero h1{max-width:23ch}
+body.page-why .puzzle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 2rem}
+body.page-why .puzzle-piece,body.page-why .puzzle-piece--dignity{clip-path:none!important;border:0!important;border-top:1px solid var(--uq-grey-300)!important;background:#fff!important;padding:1.35rem 0!important;min-height:0!important}
+body.page-why .framework-condition-grid,body.page-why .promise-grid{gap:0 2rem}
+body.page-why .framework-condition-grid article,body.page-why .promise{border:0!important;border-top:1px solid var(--uq-grey-300)!important;background:#fff!important;padding:1.25rem 0!important}
+body.page-why .accord-panel{background:var(--uq-grey-50)!important;border:0!important;padding:2rem!important}
+body.page-why .why-visual-hero{display:grid;grid-template-columns:minmax(0,42%) minmax(0,1fr);gap:2.5rem;align-items:center}
+body.page-why .why-visual-hero figure{margin:0;aspect-ratio:4/3;overflow:hidden}
+body.page-why .why-visual-hero img{width:100%;height:100%;object-fit:cover}
+body.page-why .visual-six-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 1.5rem}
+body.page-why .visual-six-grid article{border:0!important;border-top:1px solid var(--uq-grey-300)!important;background:#fff!important;border-radius:0!important;padding:1.2rem 0!important}
+body.page-why .why-photo-band{background:var(--uq-grey-50);border:0;display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:2rem;margin:2.5rem 0}
+body.page-why .focus-why-hero,body.page-why .focus-why-section,body.page-why .focus-next,body.page-why .focus-more{max-width:760px;margin-left:auto;margin-right:auto}
+body.page-why .focus-six-list>div{border-bottom:1px solid var(--uq-grey-200);padding:.85rem 0}
+body.page-why .focus-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+body.page-why .focus-tags span{background:var(--uq-grey-100);border:0;border-radius:0;padding:.45rem .65rem}
+
+/* Support page and generic panels. */
+.panel,.promise,.quick-card,.practice-link,.area-card{border-radius:0;box-shadow:none}
+.contact-grid .panel{border:0;border-top:4px solid var(--uq-purple);background:var(--uq-grey-50)}
+
+/* Current-UQ institutional footer. */
+.uq-acknowledgement{border-top:1px solid var(--uq-grey-200);background:#fff;padding:1.5rem 0}
+.uq-acknowledgement p{margin:0;font-size:.92rem}
+.uq-footer{background:var(--uq-purple-dark);color:#fff;padding:2.5rem 0 1.5rem}
+.uq-footer a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55)}
+.uq-footer__grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2rem}
+.uq-footer__grid section{min-width:0}
+.uq-footer__grid h2{color:#fff;font-family:Roboto,Arial,sans-serif;font-size:1rem;font-weight:700;margin:0 0 .8rem}
+.uq-footer__grid a{display:block;font-size:.86rem;margin:.5rem 0;line-height:1.4}
+.uq-footer__brandline{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid rgba(255,255,255,.22);margin-top:2rem;padding-top:1.3rem}
+.uq-footer__mark{font-family:Merriweather,Georgia,serif;font-size:1.05rem;font-weight:700}
+.prototype-note{font-size:.78rem;color:rgba(255,255,255,.78)}
+.uq-footer__legal{display:flex;flex-wrap:wrap;gap:.5rem 1.15rem;margin-top:1rem;color:rgba(255,255,255,.75);font-size:.75rem}
+.uq-footer__legal a{font-size:.75rem}
+
+/* Responsive */
+@media(max-width:1020px){
+  .uq-global__primary{display:none}
+  .uq-global__main-inner{justify-content:space-between}
+  .uq-site-nav__inner{min-height:auto;display:block}
+  .uq-site-menu{display:block;margin:.55rem 0;border:1px solid var(--uq-purple);background:#fff;color:var(--uq-purple);padding:.5rem .75rem;font-weight:600}
+  .uq-site-nav__links{display:none;padding-bottom:.6rem}
+  .uq-site-nav__links.is-open{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .uq-site-nav__links a{min-height:44px;border-bottom:1px solid var(--uq-grey-200)}
+  .uq-footer__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:820px){
+  .uq-global__utility nav{gap:.9rem}
+  .uq-global__utility a:nth-child(2),.uq-global__utility a:nth-child(3),.uq-global__utility a:nth-child(4){display:none}
+  .uq-site-title .uq-shell{min-height:66px}
+  .uq-site-title a{font-size:1.15rem}
+  .uq-hub-nav__inner{flex-wrap:wrap;align-items:center;padding:.35rem 0}
+  .uq-hub-nav__title{min-height:44px}
+  .uq-hub-nav .menu-button{display:block;margin-left:auto;border:1px solid var(--uq-purple);background:#fff;color:var(--uq-purple);padding:.5rem .7rem}
+  .uq-hub-nav .nav-links{display:none;width:100%;flex-direction:column}
+  .uq-hub-nav .nav-links.is-open{display:flex}
+  .uq-hub-nav .nav-links a{min-height:44px;border-bottom:1px solid var(--uq-grey-200)}
+  .design-switcher__inner{align-items:flex-start;flex-direction:column;gap:.5rem}
+  .option-toggle{width:100%}
+  .option-toggle button{flex:1}
+  body.page-home .feature-areas,body.page-home .option3-area-grid{grid-template-columns:1fr}
+  body.page-home .option3-real-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.page-home .uq-drupal-hero-media img{height:280px}
+  body.page-area .page-hero,body.page-framework .page-hero,body.page-howto .page-hero{grid-template-columns:1fr;gap:1rem}
+  body.page-area .task-grid,html[data-design="3"] body.page-area .task-grid{grid-template-columns:1fr}
+  body.page-area .compact-practice-list,html[data-design="2"] body.page-area .compact-practice-list{grid-template-columns:1fr}
+  .alt-guide-hero,body.page-why .why-visual-hero,body.page-why .why-photo-band{grid-template-columns:1fr}
+  .visual-guide-grid,body.page-why .puzzle-grid,body.page-why .visual-six-grid{grid-template-columns:1fr}
+  html[data-design="2"] .framework-checklist--visual .framework-checklist__items{grid-template-columns:1fr}
+  .uq-footer__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .uq-footer__brandline{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:520px){
+  .uq-mark{min-width:0}
+  .uq-mark__words{font-size:.92rem}
+  .uq-mark__shield{width:35px;height:42px}
+  .uq-global__search{font-size:0;gap:0}
+  .uq-global__search span{font-size:1.5rem}
+  .uq-site-nav__links.is-open{grid-template-columns:1fr}
+  .design-switcher__intro span{display:none}
+  body.page-home .option3-real-grid{grid-template-columns:1fr}
+  .uq-footer__grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* ==========================================================================\n   Current UQ Drupal shell — modelled directly on the uploaded UQ page HTML.\n   Keeps prototype content/options while matching the current UQ page layout.\n   ========================================================================== */
+:root{--uq-purple:#51247a;--uq-purple-dark:#40205f;--uq-purple-darker:#2f1747;--uq-purple-light:#f3eef7;--uq-black:#19151c;--uq-grey:#4d4b4f;--uq-grey-100:#f7f7f7;--uq-grey-200:#e5e5e5;--uq-grey-300:#d7d7d7;--uq-container:71rem}
+html,body{margin:0;padding:0;background:#fff;color:var(--uq-black);font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.6}
+body{font-size:16px}
+*{box-sizing:border-box}
+a{color:var(--uq-purple)}
+.uq-container{width:100%;max-width:var(--uq-container);margin-inline:auto;padding-inline:1rem}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.focusable:focus{position:fixed!important;z-index:10000;top:8px;left:8px;width:auto!important;height:auto!important;clip:auto!important;background:#fff;color:var(--uq-purple);padding:10px 14px!important;margin:0!important}
+
+/* Header: exact class hierarchy from the uploaded current UQ page */
+.uq-header{position:relative;z-index:50;background:var(--uq-purple);color:#fff;font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif}
+.uq-header__container{max-width:var(--uq-container);height:74px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;gap:24px}
+.uq-header__logo{flex:0 0 auto;display:flex;align-items:center}
+.uq-header__logo img{display:block;width:238px;max-height:53px}
+.uq-header__nav-primary{margin-left:auto;height:100%}
+.uq-header__nav-primary-container,.uq-header__nav-primary-list{height:100%;margin:0;padding:0}
+.uq-header__nav-primary-list{display:flex;align-items:stretch;list-style:none}
+.uq-header__nav-primary-item{display:flex;align-items:stretch}
+.uq-header__nav-primary-link{display:flex;align-items:center;padding:0 16px;color:#fff;text-decoration:none;font-weight:500;font-size:15px;white-space:nowrap;border-bottom:4px solid transparent}
+.uq-header__nav-primary-link:hover,.uq-header__nav-primary-link:focus{background:rgba(255,255,255,.10);color:#fff;text-decoration:underline;text-underline-offset:4px}
+.uq-header__search-toggle{height:100%;display:flex;align-items:stretch}
+.nav-primary__search-toggle{min-width:72px;padding:0 14px;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;border-left:1px solid rgba(255,255,255,.22)}
+.nav-primary__search-toggle:before{content:"⌕";font-size:28px;line-height:1;margin-right:7px;font-weight:300}
+.search-toggle__label{font-size:14px;font-weight:500}
+.uq-header__menu-toggle{display:none}
+.uq-header__search{display:none}
+.uq-header__nav-secondary{background:var(--uq-purple-dark);border-top:1px solid rgba(255,255,255,.10)}
+.uq-header__nav-secondary-container{max-width:var(--uq-container);height:32px;margin:0 auto;padding:0 1rem;display:flex;justify-content:flex-end;align-items:center}
+.uq-header__nav-secondary-list{display:flex;list-style:none;margin:0;padding:0;gap:23px}
+.uq-header__nav-secondary-link{font-size:13px;color:#fff;text-decoration:none;line-height:32px}
+.uq-header__nav-secondary-link:hover{text-decoration:underline;color:#fff}
+.global-mobile-nav{display:none}
+
+/* Breadcrumb strip */
+.uq-breadcrumbs{background:#f7f7f7;border-bottom:1px solid #e5e5e5}
+.uq-breadcrumb{min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.uq-breadcrumb__list{list-style:none;padding:0;margin:0;display:flex;align-items:center;flex-wrap:wrap;gap:0;font-size:14px}
+.uq-breadcrumb__item{display:flex;align-items:center;color:#59565b}
+.uq-breadcrumb__item:not(:last-child)::after{content:"›";padding:0 10px;color:#807d82;font-size:18px;line-height:1}
+.uq-breadcrumb__link{color:#4d4b4f;text-decoration:none}
+a.uq-breadcrumb__link:hover{color:var(--uq-purple);text-decoration:underline}
+.uq-breadcrumb__item[aria-current="page"] .uq-breadcrumb__link{color:#19151c;font-weight:500}
+.uq-site-header__title-container__right{margin-left:auto;flex:0 0 auto}
+.uq-login-link{display:flex;align-items:center;gap:8px;min-height:40px;padding:4px 6px;color:#19151c;text-decoration:none;font-weight:500}
+.uq-login-link:hover span{background:var(--uq-purple);color:white}
+
+/* Hero: UQ image + purple text panel */
+.uq-hero{position:relative;min-height:336px;background:var(--uq-purple);overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch}
+.uq-hero__image{position:absolute;inset:0 0 0 42%;overflow:hidden;background:#d8d3dc}
+.uq-hero__image:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--uq-purple) 0%,rgba(81,36,122,.98) 10%,rgba(81,36,122,.25) 52%,rgba(81,36,122,0) 72%)}
+.uq-hero__image img{width:100%;height:100%;object-fit:cover;display:block}
+.uq-hero>.uq-container{position:relative;z-index:2;display:flex;align-items:center;min-height:336px}
+.uq-hero__content{width:min(48%,560px);padding:48px 42px 48px 0;color:#fff}
+.uq-hero__title{font-family:Montserrat,Roboto,sans-serif;font-weight:400;font-size:42px;line-height:1.16;letter-spacing:-.02em;color:#fff;margin:0 0 18px}
+.uq-hero__description{font-size:20px;line-height:1.5;color:#fff;max-width:520px}
+
+/* Sidebar layout and the new current UQ local nav */
+.uq-sidebar-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;align-items:start;padding-top:48px;padding-bottom:72px}
+.uq-sidebar-layout__sidebar{min-width:0}
+.uq-sidebar-layout__main{min-width:0}
+.uq-local-nav-toggle{display:none}
+.uq-local-nav{font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;border-top:4px solid var(--uq-purple);font-size:15px}
+.uq-local-nav a{color:#2f2b31;text-decoration:none}
+.uq-local-nav__grandparent,.uq-local-nav__parent{border-bottom:1px solid #dedcdf}
+.uq-local-nav__grandparent .uq-local-nav__link{display:block;padding:10px 12px;color:#5f5b61;font-size:13px}
+.uq-local-nav__parent .uq-local-nav__link{display:block;padding:14px 12px;font-weight:500;font-size:16px;color:#19151c}
+.uq-local-nav__children,.uq-local-nav__grandchildren{list-style:none;padding:0;margin:0}
+.uq-local-nav__child{border-bottom:1px solid #dedcdf}
+.uq-local-nav__child>.uq-local-nav__link{display:block;padding:13px 12px;font-weight:500;position:relative}
+.uq-local-nav--has-children>.uq-local-nav__link{padding-right:32px}
+.uq-local-nav--has-children>.uq-local-nav__link:after{content:"›";position:absolute;right:12px;font-size:20px;top:8px;color:#6d6870}
+.uq-local-nav--current-child>.uq-local-nav__link{background:#f3eef7;color:var(--uq-purple);border-left:4px solid var(--uq-purple);padding-left:8px}
+.uq-local-nav__grandchildren{border-top:1px solid #e7e5e8;background:#faf9fb}
+.uq-local-nav__grandchild{border-bottom:1px solid #eceaec}
+.uq-local-nav__grandchild:last-child{border-bottom:0}
+.uq-local-nav__grandchild .uq-local-nav__link{display:block;padding:10px 12px 10px 28px;font-size:14px;color:#4d494f}
+.uq-local-nav__grandchild .uq-local-nav__link:hover,.uq-local-nav__child>.uq-local-nav__link:hover{background:#f7f4f9;color:var(--uq-purple);text-decoration:underline}
+.uq-local-nav__grandchild.uq-local-nav--current-grandchild .uq-local-nav__link{color:var(--uq-purple);font-weight:500;background:#efe7f5;box-shadow:inset 4px 0 0 var(--uq-purple)}
+
+/* Prototype switcher uses a standard restrained UQ callout shape */
+.uq-prototype-switcher{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 32px;padding:15px 18px;background:#f7f7f7;border-left:4px solid var(--uq-purple)}
+.uq-prototype-switcher>div:first-child{display:flex;flex-direction:column;gap:1px}
+.uq-prototype-switcher strong{font-family:Montserrat,Roboto,sans-serif;font-size:15px;font-weight:500}
+.uq-prototype-switcher span{font-size:13px;color:#59565b}
+.uq-prototype-switcher .option-toggle{display:flex;gap:0;flex:0 0 auto}
+.uq-prototype-switcher .option-toggle button{min-height:40px;border:1px solid var(--uq-purple);background:#fff;color:var(--uq-purple);padding:7px 13px;font-weight:500;margin-left:-1px;border-radius:0}
+.uq-prototype-switcher .option-toggle button:first-child{margin-left:0;border-radius:2px 0 0 2px}
+.uq-prototype-switcher .option-toggle button:last-child{border-radius:0 2px 2px 0}
+.uq-prototype-switcher .option-toggle button[aria-pressed="true"]{background:var(--uq-purple);color:#fff}
+
+/* Hub content translated into current UQ page proportions */
+.hub-content{max-width:100%}
+.hub-content>.section:first-child,.hub-content>.area-section:first-child{margin-top:0}
+.hub-content .section{margin-top:44px}
+.hub-content .section-head{margin-bottom:22px}
+.hub-content .section-head h2,.hub-content .uq-section__title{font-family:Montserrat,Roboto,sans-serif;font-weight:400;font-size:28px;line-height:1.25;margin-bottom:10px}
+.hub-content .feature-areas{margin-top:0}
+.hub-content .feature-band{display:grid;grid-template-columns:210px minmax(0,1fr);gap:0;border:1px solid #ddd;background:#fff;margin:0 0 24px;overflow:hidden}
+.hub-content .feature-band:nth-child(even){grid-template-columns:210px minmax(0,1fr)}
+.hub-content .feature-band:nth-child(even) .feature-media{order:0}.hub-content .feature-band:nth-child(even) .feature-copy{order:1}
+.hub-content .feature-media{min-height:190px}.hub-content .feature-media img{width:100%;height:100%;object-fit:cover}
+.hub-content .feature-copy{padding:24px 28px}
+.hub-content .feature-copy h2{font-family:Montserrat,Roboto,sans-serif;font-size:24px;font-weight:400;line-height:1.25;margin:2px 0 10px}
+.hub-content .feature-copy p{margin:0 0 13px}
+.hub-content .feature-links{margin:8px 0 16px;padding-left:20px}
+.hub-content .feature-links li{margin:5px 0}
+.hub-content .primary-button,.hub-content .secondary-button{border-radius:2px}
+.hub-content .task-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.hub-content .task-card,.hub-content .compact-practice-link,.hub-content .real-link-card{border:1px solid #ddd;border-radius:0;box-shadow:none}
+.hub-content .area-section,.hub-content .compact-theme{border-top:1px solid #ddd;padding-top:28px;margin-top:42px}
+.hub-content .compact-practice-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.hub-content .guidance-section{border-top:1px solid #dedcdf;padding:30px 0}
+.hub-content .guidance-section:first-child{border-top:0}
+.hub-content .alt-guide,.hub-content .option1-guide{max-width:none}
+
+/* Option 2 stays image-led, but within UQ page chrome. */
+html[data-design="2"] .alt-guide--visual .visual-guide-hero{border-radius:0;overflow:hidden}
+html[data-design="2"] .visual-step-card{border:0;border-top:4px solid var(--uq-purple);background:#f7f7f7;border-radius:0}
+html[data-design="2"] .why-visual .visual-piece{border-radius:0;border:0;background:#f7f7f7}
+
+/* Option 3: focus version retains the narrow reading column inside the UQ main column. */
+html[data-design="3"] .alt-guide--focus,html[data-design="3"] .why-focus{max-width:720px;margin-inline:0}
+html[data-design="3"] .option3-home{max-width:none}
+
+/* Footer copied from current UQ hierarchy */
+.uq-footer{background:var(--uq-purple-dark);color:#fff;margin-top:0}
+.uq-acknowledgement{background:linear-gradient(90deg,#41215e 35.5%,rgba(65,33,94,0)),url(https://static.uq.net.au/v15/images/rap/brisbane-river-artwork.png) #41215e 50%/cover no-repeat;color:#fff}
+.uq-acknowledgement__content{max-width:var(--uq-container);margin:0 auto;padding:18px 1rem}
+.uq-acknowledgement__text{font-size:15px;line-height:1.6}
+.uq-acknowledgement__link{color:#fff;font-weight:500}
+.uq-footer__container{max-width:var(--uq-container);margin:0 auto;padding:42px 1rem 26px}
+.uq-footer__navigation-list{list-style:none;margin:0;padding:0}
+.uq-footer__navigation-level-1{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px}
+.uq-footer__navigation-title{font-family:Montserrat,Roboto,sans-serif;font-weight:500;font-size:16px;color:#fff;margin:0 0 13px}
+.uq-footer__navigation-level-2 li{margin:7px 0}
+.uq-footer__navigation-link,.uq-footer__link{font-size:14px;color:#fff;text-decoration:none}
+.uq-footer__navigation-link:hover,.uq-footer__link:hover{text-decoration:underline;color:#fff}
+.uq-footer__contact{display:flex;justify-content:flex-end;border-top:1px solid rgba(255,255,255,.22);margin-top:34px;padding-top:18px}
+.uq-footer__footer-list{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;margin:0;padding:0}
+.uq-footer__meta,.uq-footer__footer{margin-top:12px;font-size:13px;color:#f2edf5}
+.uq-footer__footer-item{font-size:13px}
+
+@media (max-width:1000px){
+  .uq-header__nav-primary{display:none}.uq-header__menu-toggle{display:block}.uq-header__container{height:66px;gap:14px}.uq-header__logo img{width:210px}.uq-header__search-toggle{margin-left:auto}.uq-header__nav-secondary{display:none}
+  .nav-primary__menu-toggle{border:0;background:transparent;color:#fff;font-weight:500;font-size:15px;min-height:44px}
+  .global-mobile-nav{display:none;background:#fff;color:#19151c;padding:18px 1rem}.global-mobile-nav.is-open{display:block}.global-mobile-nav ul{list-style:none;margin:12px 0 0;padding:0}.global-mobile-nav a{display:block;padding:10px 0;border-bottom:1px solid #ddd;color:#19151c;text-decoration:none}.uq-site-header__title{font-weight:500;color:var(--uq-purple)!important}
+  .uq-sidebar-layout{grid-template-columns:220px minmax(0,1fr);gap:28px}
+  .uq-hero__content{width:55%}.uq-hero__title{font-size:36px}
+  .uq-footer__navigation-level-1{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .uq-container{padding-inline:24px}.uq-header__container{padding-inline:24px}.uq-header__logo img{width:180px}.search-toggle__label{display:none}.nav-primary__search-toggle{min-width:48px;border-left:0;padding:0}
+  .uq-breadcrumb{min-height:46px}.uq-breadcrumb__list{font-size:13px}.uq-site-header__title-container__right{display:none}
+  .uq-hero{min-height:0;display:block}.uq-hero__image{position:relative;inset:auto;height:210px}.uq-hero__image:before{background:linear-gradient(0deg,rgba(81,36,122,.75),rgba(81,36,122,.05) 55%)}.uq-hero>.uq-container{min-height:0;background:var(--uq-purple);display:block}.uq-hero__content{width:100%;padding:28px 0 32px}.uq-hero__title{font-size:30px}.uq-hero__description{font-size:18px}
+  .uq-sidebar-layout{display:block;padding-top:28px}.uq-sidebar-layout__sidebar{margin-bottom:26px}.uq-local-nav-toggle{display:flex;width:100%;min-height:48px;align-items:center;justify-content:space-between;border:1px solid #c9c6ca;background:#fff;color:#19151c;padding:10px 14px;font-weight:500}.uq-local-nav-toggle:after{content:"+";font-size:22px;color:var(--uq-purple)}.uq-local-nav-toggle[aria-expanded="true"]:after{content:"−"}.uq-local-nav{display:none;border-top:0;border:1px solid #d9d7da;border-top:0}.uq-local-nav.is-open{display:block}
+  .uq-prototype-switcher{align-items:flex-start;flex-direction:column}.uq-prototype-switcher .option-toggle{width:100%}.uq-prototype-switcher .option-toggle button{flex:1}
+  .hub-content .feature-band,.hub-content .feature-band:nth-child(even){grid-template-columns:1fr}.hub-content .feature-media{min-height:180px}.hub-content .task-grid,.hub-content .compact-practice-list{grid-template-columns:1fr}
+  .uq-footer__navigation-level-1{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){.uq-container{padding-inline:20px}.uq-header__container{padding-inline:20px}.uq-header__logo img{width:160px}.uq-footer__navigation-level-1{grid-template-columns:1fr}.uq-footer__footer-list{display:block}.uq-footer__footer-item{margin:5px 0}}
+
+/* ==========================================================================\n   Pixel-match refinement against the current UQ Drupal desktop shell\n   Reference proportions taken from the supplied UQ screenshots/HTML.\n   ========================================================================== */
+@media (min-width:1001px){
+  /* Current UQ header is a 38px utility bar above an 88px primary header. */
+  .uq-header{display:flex;flex-direction:column;background:#512578;color:#fff}
+  .uq-header__nav-secondary{order:-1;background:#48216a;border:0;height:38px;flex:0 0 38px}
+  .uq-header__nav-secondary-container{height:38px;max-width:71rem;padding:0 1rem;justify-content:flex-end}
+  .uq-header__nav-secondary-list{gap:31px;align-items:center;height:38px}
+  .uq-header__nav-secondary-link{font-size:14px;line-height:38px;font-weight:400}
+  .uq-header__container{order:0;height:88px;min-height:88px;max-width:71rem;padding:0 1rem;gap:30px;background:#512578}
+  .uq-header__logo img{width:169px;height:auto;max-height:48px}
+  .uq-header__nav-primary{height:88px;margin-left:0;margin-right:auto}
+  .uq-header__nav-primary-container,.uq-header__nav-primary-list{height:88px}
+  .uq-header__nav-primary-link{height:88px;padding:0 24px;font-size:16px;font-weight:400;border-bottom:0}
+  .uq-header__search-toggle{height:88px;margin-left:auto}
+  .nav-primary__search-toggle{position:relative;min-width:98px;height:88px;padding:0 4px 0 32px;border-left:0;justify-content:flex-start;gap:9px}
+  .nav-primary__search-toggle:before{content:"";position:absolute;left:7px;top:34px;width:14px;height:14px;border:2px solid #fff;border-radius:50%;margin:0}
+  .nav-primary__search-toggle:after{content:"";position:absolute;left:20px;top:49px;width:8px;height:2px;background:#fff;transform:rotate(45deg);transform-origin:left center;border-radius:1px}
+  .search-toggle__label{font-size:16px;font-weight:400}
+
+  /* Global alert treatment currently injected by the UQ Drupal shell. */
+  .uq-alerts-global-container{width:100%;background:#f0bc38;color:#19151c}
+  .uq-alert{background:#f0bc38;color:#19151c}
+  .uq-alert__container{position:relative;max-width:71rem;min-height:100px;margin:0 auto;padding:21px 1rem 21px 40px;display:flex;align-items:center}
+  .uq-alert__container:before{content:"";position:absolute;left:4px;top:31px;width:14px;height:14px;border:2px solid #4d494f;transform:rotate(45deg);border-radius:2px}
+  .uq-alert__container:after{content:"!";position:absolute;left:9px;top:29px;width:8px;text-align:center;font-size:12px;line-height:20px;font-weight:700;color:#4d494f}
+  .uq-alert__message{font-size:16px;line-height:25.6px;letter-spacing:.01em}
+  .uq-alert__message p{margin:0}
+
+  /* Breadcrumb strip on the current theme is white and about 50px high. */
+  .uq-breadcrumbs{background:#fff;border:0}
+  .uq-breadcrumb{min-height:50px;height:50px}
+  .uq-breadcrumb__list{font-size:14px;line-height:1.35;min-width:0;flex:1;overflow:hidden;white-space:nowrap}
+  .uq-breadcrumb__item{min-width:0}
+  .uq-breadcrumb__link{color:#6b686d;text-decoration:underline;text-underline-offset:2px;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .uq-breadcrumb__item:not(:last-child)::after{content:"›";padding:0 10px;color:#858187;font-size:17px}
+  .uq-login-link{font-size:16px;padding:0;gap:8px}
+
+  /* UQ's large hero: purple runs edge-to-edge; the image is anchored to the
+     right and the title sits in a separate purple panel overlapping it. */
+  .uq-hero{position:relative;display:block;min-height:420px;height:auto;background:#4b236f;overflow:hidden}
+  .uq-hero__image{position:absolute;z-index:1;top:0;bottom:0;left:calc(50% - 50px);right:auto;width:764px;height:420px;overflow:hidden;background:#4b236f}
+  .uq-hero__image:before{display:none!important;content:none!important}
+  .uq-hero__image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
+  .uq-hero>.uq-container{position:relative;z-index:2;display:block;min-height:420px;padding-top:64px;padding-bottom:64px}
+  .uq-hero__content{position:relative;width:588px;max-width:calc(100% - 380px);min-height:0;margin:0;padding:31px 32px 34px;background:#512578;color:#fff;box-shadow:0 8px 0 rgba(47,23,71,.58)}
+  .uq-hero__title{font-family:Montserrat,Roboto,sans-serif;font-weight:400;font-size:40px;line-height:1.18;letter-spacing:0;color:#fff;margin:0 0 18px}
+  .uq-hero__description{font-size:18px;line-height:1.65;color:#fff;max-width:520px;margin:0}
+
+  /* The current desktop local navigation sits in a 224-ish pixel column. */
+  .uq-sidebar-layout{grid-template-columns:224px minmax(0,1fr);gap:40px;padding-top:48px}
+}
+
+@media (min-width:1280px){
+  .uq-container,.uq-header__container,.uq-header__nav-secondary-container,.uq-alert__container,.uq-acknowledgement__content,.uq-footer__container{max-width:71rem}
+}
+
+@media (max-width:1000px){
+  /* Preserve the existing responsive/mobile behaviour, but keep the hero
+     visually UQ-like rather than using the earlier gradient treatment. */
+  .uq-hero__image:before{display:none!important;content:none!important}
+}
+
+/* ==========================================================================
+   UQ local navigation refinement
+   Matches the current Drupal local navigation shown on deep UQ content pages:
+   hierarchy rows with left chevrons and dark rules; nested links are indented;
+   the current page uses a grey fill and purple left rule.
+   ========================================================================== */
+@media (min-width:761px){
+  .uq-sidebar-layout{
+    grid-template-columns:262px minmax(0,1fr);
+    column-gap:80px;
+  }
+
+  .uq-local-nav{
+    border:0;
+    width:100%;
+    font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:16px;
+    line-height:1.35;
+    background:#fff;
+  }
+  .uq-local-nav a{color:#19151c;text-decoration:none}
+
+  /* Ancestor path: UQ home > unit > section > current hub. */
+  .uq-local-nav__grandparent,
+  .uq-local-nav__parent{
+    border:0;
+    margin:0;
+  }
+  .uq-local-nav__grandparent .uq-local-nav__link,
+  .uq-local-nav__parent .uq-local-nav__link,
+  .uq-local-nav--current-child > .uq-local-nav__link{
+    position:relative;
+    display:block;
+    box-sizing:border-box;
+    min-height:60px;
+    padding:17px 12px 16px 31px;
+    border-bottom:2px solid #454247;
+    background:#fff;
+    color:#19151c;
+    font-size:16px;
+    line-height:24px;
+    font-weight:600;
+  }
+  .uq-local-nav__grandparent .uq-local-nav__link::before,
+  .uq-local-nav__parent .uq-local-nav__link::before,
+  .uq-local-nav--current-child > .uq-local-nav__link::before{
+    content:"";
+    position:absolute;
+    left:9px;
+    top:50%;
+    width:9px;
+    height:9px;
+    border-left:1.7px solid #51247a;
+    border-bottom:1.7px solid #51247a;
+    transform:translateY(-50%) rotate(45deg);
+    transform-origin:center;
+  }
+  .uq-local-nav--current-child > .uq-local-nav__link{
+    color:#19151c;
+    border-left:0;
+  }
+  .uq-local-nav--current-child > .uq-local-nav__link::after{content:none!important}
+
+  .uq-local-nav__children,
+  .uq-local-nav__grandchildren{
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+
+  /* Open current branch: simple UQ list rows. */
+  .uq-local-nav--current-child > .uq-local-nav__grandchildren{
+    border:0;
+    background:#fff;
+  }
+  .uq-local-nav__grandchild{
+    border:0;
+    margin:0;
+  }
+  .uq-local-nav__grandchild .uq-local-nav__link{
+    display:block;
+    box-sizing:border-box;
+    min-height:58px;
+    padding:17px 14px 16px 31px;
+    border-bottom:1px solid #bbb8bc;
+    background:#fff;
+    color:#19151c;
+    font-size:16px;
+    line-height:24px;
+    font-weight:400;
+  }
+  .uq-local-nav__grandchild:last-child .uq-local-nav__link{
+    border-bottom:1px solid #bbb8bc;
+  }
+  .uq-local-nav__grandchild.uq-local-nav--current-grandchild .uq-local-nav__link{
+    position:relative;
+    background:#d7d5d7;
+    color:#19151c;
+    font-weight:600;
+    box-shadow:inset 4px 0 0 #51247a;
+    padding-left:31px;
+  }
+
+  /* Sibling section rows below the open branch. */
+  .uq-local-nav__child:not(.uq-local-nav--current-child){
+    border:0;
+    margin:0;
+  }
+  .uq-local-nav__child:not(.uq-local-nav--current-child) > .uq-local-nav__link{
+    position:relative;
+    display:block;
+    box-sizing:border-box;
+    min-height:58px;
+    padding:17px 34px 16px 31px;
+    border-bottom:1px solid #bbb8bc;
+    background:#fff;
+    color:#19151c;
+    font-size:16px;
+    line-height:24px;
+    font-weight:400;
+  }
+  .uq-local-nav__child:not(.uq-local-nav--current-child).uq-local-nav--has-children > .uq-local-nav__link::after{
+    content:"⌄";
+    position:absolute;
+    right:7px;
+    top:16px;
+    color:#19151c;
+    font-size:19px;
+    line-height:24px;
+    font-weight:400;
+  }
+
+  .uq-local-nav__grandparent .uq-local-nav__link:hover,
+  .uq-local-nav__parent .uq-local-nav__link:hover,
+  .uq-local-nav__child > .uq-local-nav__link:hover,
+  .uq-local-nav__grandchild .uq-local-nav__link:hover{
+    background:#f4f2f4;
+    color:#19151c;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+}
+
+@media (min-width:1280px){
+  /* At the desktop width used in the supplied UQ screenshot the live page has
+     a noticeably wider gutter between local navigation and body content. */
+  .uq-sidebar-layout{grid-template-columns:262px minmax(0,1fr);column-gap:80px}
+}
+
+/* ========================================================================== 
+   Full-bleed UQ hero refinement
+   The current UQ Drupal hero is an edge-to-edge purple band. Keep the inner
+   71rem content alignment, image anchoring and overlapping title panel, while
+   allowing the purple field itself to reach both viewport edges.
+   ========================================================================== */
+@media (min-width:1001px){
+  .uq-hero{
+    width:100vw;
+    max-width:none;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+    background:#4b236f;
+  }
+  .uq-hero>.uq-container{
+    width:100%;
+    max-width:71rem;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+/* ========================================================================== 
+   Content refresh: adapt Hub content to current UQ card/layout patterns
+   ========================================================================== */
+
+/* The small purple kicker/eyebrow labels have been removed from the markup.
+   Keep this fallback so any dynamically-added or missed label stays hidden. */
+.eyebrow{display:none!important}
+
+/* Start page — Options 1 and 2 use the current UQ two-column image-card rhythm. */
+body.page-home .hub-content .option12-home.feature-areas{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:32px;
+  align-items:stretch;
+  margin-top:0;
+}
+body.page-home .hub-content .option12-home.feature-areas>.section-head{
+  grid-column:1/-1;
+  margin:0 0 2px;
+}
+body.page-home .hub-content .option12-home.feature-areas>.section-head h2{
+  margin:0;
+  max-width:760px;
+  font-size:28px;
+  line-height:1.25;
+}
+
+body.page-home .hub-content .option12-home .feature-band,
+body.page-home .hub-content .option12-home .feature-band.feature-band--reverse,
+body.page-home .hub-content .option12-home .feature-band:nth-child(even){
+  display:flex!important;
+  flex-direction:column!important;
+  grid-template-columns:none!important;
+  gap:0;
+  align-self:stretch;
+  min-width:0;
+  height:100%;
+  min-height:0;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden;
+  border:1px solid #d6d3d7!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+body.page-home .hub-content .option12-home .feature-band .feature-media,
+body.page-home .hub-content .option12-home .feature-band:nth-child(even) .feature-media{
+  order:0!important;
+  display:block;
+  flex:0 0 auto;
+  width:100%;
+  min-height:0!important;
+  margin:0!important;
+  aspect-ratio:3 / 2;
+  overflow:hidden;
+  background:#f1f0f1;
+}
+body.page-home .hub-content .option12-home .feature-media img{
+  display:block;
+  width:100%;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  object-fit:cover;
+  object-position:center;
+}
+body.page-home .hub-content .option12-home .feature-media figcaption{
+  display:none;
+}
+body.page-home .hub-content .option12-home .feature-copy,
+body.page-home .hub-content .option12-home .feature-band:nth-child(even) .feature-copy{
+  order:1!important;
+  display:flex!important;
+  flex:1 1 auto;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  width:100%;
+  min-width:0;
+  padding:24px 24px 26px!important;
+  background:#fff;
+}
+body.page-home .hub-content .option12-home .feature-copy h2{
+  margin:0 0 10px;
+  font-size:22px;
+  line-height:1.28;
+  font-weight:500;
+}
+body.page-home .hub-content .option12-home .feature-copy h2 a{
+  color:#19151c;
+  text-decoration:underline;
+  text-decoration-thickness:1.4px;
+  text-underline-offset:4px;
+}
+body.page-home .hub-content .option12-home .feature-copy h2 a:hover{
+  color:#51247a;
+  background:transparent;
+}
+body.page-home .hub-content .option12-home .feature-copy>p{
+  margin:0 0 15px;
+  font-size:16px;
+  line-height:1.5;
+  color:#363238;
+}
+
+/* Option 1 keeps its task-first idea, but as a compact list inside the UQ card. */
+body.page-home .hub-content .option12-home .feature-links{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  width:100%;
+  margin:3px 0 16px;
+  padding:0;
+}
+body.page-home .hub-content .option12-home .feature-links a{
+  display:block;
+  padding:8px 0;
+  border:0;
+  border-top:1px solid #e1dfe2;
+  background:transparent!important;
+  color:#51247a;
+  font-size:14px;
+  line-height:1.35;
+  font-weight:500;
+  text-decoration:none;
+}
+body.page-home .hub-content .option12-home .feature-links a:last-child{
+  border-bottom:1px solid #e1dfe2;
+}
+body.page-home .hub-content .option12-home .feature-links a::after{
+  content:' →';
+  color:#51247a;
+}
+body.page-home .hub-content .option12-home .feature-links a:hover{
+  color:#3b1a59;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+/* Option 2 retains the consolidated low-link treatment. */
+html[data-design="2"] body.page-home .hub-content .option12-home .feature-links{
+  display:none!important;
+}
+
+/* Current UQ cards use a simple arrow affordance rather than a large CTA button. */
+body.page-home .hub-content .option12-home .uq-card-arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-start;
+  min-width:44px;
+  min-height:44px;
+  margin-top:auto;
+  color:#51247a;
+  font-size:29px;
+  line-height:1;
+  font-weight:400;
+  text-decoration:none;
+  background:transparent;
+  border:0;
+  padding:6px 0 0;
+}
+body.page-home .hub-content .option12-home .uq-card-arrow:hover{
+  color:#3b1a59;
+  transform:translateX(3px);
+}
+
+/* Two columns remain until tablet widths; then cards stack cleanly. */
+@media (max-width:900px){
+  body.page-home .hub-content .option12-home.feature-areas{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  body.page-home .hub-content .option12-home .feature-media{
+    aspect-ratio:16 / 9;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-18 homepage-only UQ card match
+   Reference patterns:
+   - uq-card--icon-nav: Training and workshops
+   - uq-card--image: Orientation at your library
+   ========================================================================== */
+
+body.page-home .hub-content .option3-home,
+body.page-home .hub-content .option12-home {
+  margin-top: 32px;
+}
+
+body.page-home .hub-content .option3-home > .uq-section__header,
+body.page-home .hub-content .option12-home > .uq-section__header {
+  margin: 0 0 24px;
+}
+
+body.page-home .hub-content .option3-home .uq-section__title,
+body.page-home .hub-content .option12-home .uq-section__title {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: #19151c;
+}
+
+body.page-home .hub-content .homepage-framework-heading {
+  margin-top: 40px !important;
+}
+
+/* Shared two-up grid rhythm from current UQ Drupal card grids. */
+body.page-home .hub-content .homepage-icon-card-grid,
+body.page-home .hub-content .homepage-image-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+body.page-home .hub-content .homepage-icon-card-grid > .block,
+body.page-home .hub-content .homepage-image-card-grid > .block {
+  min-width: 0;
+  display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   OPTION 3 — uq-card--icon-nav treatment
+   -------------------------------------------------------------------------- */
+body.page-home .hub-content .homepage-icon-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 238px;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+body.page-home .hub-content .homepage-icon-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px 24px 20px;
+}
+
+body.page-home .hub-content .homepage-icon-card .uq-card__title {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+body.page-home .hub-content .homepage-icon-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+body.page-home .hub-content .homepage-icon-card .uq-card__description {
+  margin: 0 0 20px;
+  color: #19151c;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.page-home .hub-content .homepage-icon-card .uq-card__nav-arrow {
+  margin-top: auto;
+  color: #51247a;
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+body.page-home .hub-content .homepage-icon-card:hover {
+  background: #f3f2f3;
+}
+
+body.page-home .hub-content .homepage-icon-card:hover .uq-card__title a,
+body.page-home .hub-content .homepage-icon-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   OPTIONS 1 & 2 — uq-card--image treatment
+   -------------------------------------------------------------------------- */
+body.page-home .hub-content .homepage-image-card {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__image {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #f3f2f3;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px;
+  background: #fff;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__title {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__title a:hover,
+body.page-home .hub-content .homepage-image-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__description {
+  margin: 0 0 14px;
+  color: #19151c;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__description p {
+  margin: 0;
+}
+
+body.page-home .hub-content .homepage-task-links {
+  width: 100%;
+  margin: 4px 0 18px;
+}
+
+body.page-home .hub-content .homepage-task-links a {
+  display: block;
+  padding: 7px 0;
+  border-top: 1px solid #e1dfe2;
+  color: #19151c;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+body.page-home .hub-content .homepage-task-links a:last-child {
+  border-bottom: 1px solid #e1dfe2;
+}
+
+body.page-home .hub-content .homepage-task-links a::after {
+  content: " →";
+  color: #51247a;
+}
+
+body.page-home .hub-content .homepage-task-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+body.page-home .hub-content .homepage-image-card .uq-card__nav-arrow {
+  margin-top: auto;
+  color: #51247a;
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+html[data-design="2"] body.page-home .hub-content .homepage-task-links {
+  display: none !important;
+}
+
+/* Keep the third image card the same width as the others, aligned to the left. */
+body.page-home .hub-content .homepage-image-card-grid > .block:last-child:nth-child(odd) {
+  grid-column: 1;
+}
+
+@media (max-width: 900px) {
+  body.page-home .hub-content .homepage-icon-card-grid,
+  body.page-home .hub-content .homepage-image-card-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+
+/* Fix homepage section/grid nesting: the older feature-areas rule made the
+   section itself a two-column grid, squeezing the new UQ card grid into one
+   grid cell. Keep the section linear and let the UQ card grid own the columns. */
+body.page-home .hub-content .option12-home.feature-areas,
+body.page-home .hub-content .option12-home {
+  display:block !important;
+  grid-template-columns:none !important;
+  width:100% !important;
+}
+body.page-home .hub-content .homepage-image-card-grid,
+body.page-home .hub-content .homepage-icon-card-grid {
+  width:100% !important;
+  max-width:none !important;
+}
+body.page-home .hub-content .option12-home > .uq-section__header {
+  display:block !important;
+  width:100% !important;
+  margin-bottom:24px !important;
+}
+
+
+/* ==========================================================================
+   2026-09-18 area-page refresh
+   - concise framework headings
+   - UQ icon-nav treatment for individual framework practice links
+   ========================================================================== */
+
+/* The framework-area badge is no longer used on Curriculum / Teaching /
+   Assessment pages. Keep this fallback hidden if any old markup remains. */
+body.page-area .theme-badge {
+  display: none !important;
+}
+
+/* Slightly stronger, cleaner framework section titles now that the short label
+   is the actual heading. */
+body.page-area .theme-compact-head h2 {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-area .theme-compact-head .detail-copy {
+  margin-top: 0;
+}
+
+/* Individual framework practices: current UQ icon-navigation card pattern. */
+body.page-area .compact-practice-list,
+html[data-design="2"] body.page-area .compact-practice-list,
+html[data-design="3"] body.page-area .compact-practice-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: none;
+}
+
+body.page-area .compact-practice-link,
+html[data-design="1"] body.page-area .compact-practice-link,
+html[data-design="2"] body.page-area .compact-practice-link,
+html[data-design="3"] body.page-area .compact-practice-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 190px;
+  padding: 24px !important;
+  border: 1px solid #d6d3d7 !important;
+  background: #fff !important;
+  color: #19151c;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+body.page-area .compact-practice-link h3,
+html[data-design="1"] body.page-area .compact-practice-link h3,
+html[data-design="2"] body.page-area .compact-practice-link h3,
+html[data-design="3"] body.page-area .compact-practice-link h3 {
+  margin: 0 0 18px;
+  color: #19151c;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-area .compact-practice-link::after {
+  content: "→";
+  display: inline-block;
+  margin-top: auto;
+  color: #51247a;
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+body.page-area .compact-practice-link:hover,
+html[data-design="1"] body.page-area .compact-practice-link:hover,
+html[data-design="2"] body.page-area .compact-practice-link:hover,
+html[data-design="3"] body.page-area .compact-practice-link:hover {
+  background: #f3f2f3 !important;
+  border-color: #d6d3d7 !important;
+}
+
+body.page-area .compact-practice-link:hover h3,
+body.page-area .compact-practice-link:focus-visible h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  body.page-area .compact-practice-list,
+  html[data-design="2"] body.page-area .compact-practice-list,
+  html[data-design="3"] body.page-area .compact-practice-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-18 — Match current UQ "icon navigation" cards
+   Reference: Library > Training and workshops > Online courses and modules
+
+   Apply the same visual card language to the Hub's clickable navigation boxes:
+   - quick task cards
+   - framework practice cards
+   - related framework cards
+   - next-choice cards
+   ========================================================================== */
+
+/* Two cards per row, matching the current UQ Drupal card-grid rhythm. */
+body .hub-content .task-grid,
+body .hub-content .compact-practice-list,
+body .hub-content .real-link-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 32px !important;
+  align-items: stretch !important;
+}
+
+/* Shared UQ icon-navigation card shell. */
+body .hub-content .task-card,
+body .hub-content .compact-practice-link,
+body .hub-content .real-link-card {
+  box-sizing: border-box !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 220px !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 24px 24px 20px !important;
+
+  border: 1px solid #d6d3d7 !important;
+  border-top: 1px solid #d6d3d7 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  background: #fff !important;
+  color: #19151c !important;
+  text-decoration: none !important;
+}
+
+/* UQ card heading treatment. */
+body .hub-content .task-card h3,
+body .hub-content .compact-practice-link h3,
+body .hub-content .real-link-card h3 {
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  color: #19151c !important;
+  font-size: 24px !important;
+  line-height: 1.25 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+/* Any supporting copy within a card follows UQ body typography. */
+body .hub-content .task-card p,
+body .hub-content .compact-practice-link p,
+body .hub-content .real-link-card p {
+  margin: 0 0 16px !important;
+  color: #363238 !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+}
+
+/* Purple UQ arrow anchored to the end/bottom of every navigation card. */
+body .hub-content .task-card::after,
+body .hub-content .compact-practice-link::after,
+body .hub-content .real-link-card::after {
+  content: "→" !important;
+  display: block !important;
+  margin-top: auto !important;
+  padding-top: 20px !important;
+  color: #51247a !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 32px !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+/* Current UQ cards shade very lightly on hover; title becomes underlined. */
+body .hub-content .task-card:hover,
+body .hub-content .compact-practice-link:hover,
+body .hub-content .real-link-card:hover,
+body .hub-content .task-card:focus-visible,
+body .hub-content .compact-practice-link:focus-visible,
+body .hub-content .real-link-card:focus-visible {
+  background: #f3f2f3 !important;
+  border-color: #d6d3d7 !important;
+  text-decoration: none !important;
+}
+
+body .hub-content .task-card:hover h3,
+body .hub-content .compact-practice-link:hover h3,
+body .hub-content .real-link-card:hover h3,
+body .hub-content .task-card:focus-visible h3,
+body .hub-content .compact-practice-link:focus-visible h3,
+body .hub-content .real-link-card:focus-visible h3 {
+  color: #19151c !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1.5px !important;
+  text-underline-offset: 3px !important;
+}
+
+/* Remove older Hub-specific treatments that made these look unlike UQ cards. */
+body .hub-content .task-card .uses-real {
+  margin-top: 0 !important;
+  color: #363238 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+/* Small 'next choice' navigation boxes use the same card language. */
+body .hub-content .theme-nav-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 32px !important;
+}
+
+body .hub-content .theme-nav-card {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  min-height: 150px !important;
+  padding: 24px 24px 20px !important;
+  border: 1px solid #d6d3d7 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: #19151c !important;
+  font-size: 18px !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+body .hub-content .theme-nav-card::after {
+  content: "→" !important;
+  display: block !important;
+  margin-top: auto !important;
+  padding-top: 18px !important;
+  color: #51247a !important;
+  font-size: 30px !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+}
+
+body .hub-content .theme-nav-card:hover,
+body .hub-content .theme-nav-card:focus-visible {
+  background: #f3f2f3 !important;
+  color: #19151c !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+/* Preserve Option 3's deliberate reduced set of quick tasks, but not its
+   old compact 3-column visual treatment. */
+html[data-design="3"] body.page-area .task-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 32px !important;
+}
+html[data-design="3"] body.page-area .task-card {
+  min-height: 220px !important;
+  padding: 24px 24px 20px !important;
+}
+html[data-design="3"] body.page-area .task-card h3 {
+  font-size: 24px !important;
+}
+
+/* Responsive UQ-style single column. */
+@media (max-width: 760px) {
+  body .hub-content .task-grid,
+  body .hub-content .compact-practice-list,
+  body .hub-content .real-link-list,
+  body .hub-content .theme-nav-grid,
+  html[data-design="3"] body.page-area .task-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  body .hub-content .task-card,
+  body .hub-content .compact-practice-link,
+  body .hub-content .real-link-card {
+    min-height: 170px !important;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-21 — Framework pages: current UQ 3-up text cards
+   Reference: Library and student IT help > Library help topics
+   Applies only to Curriculum, Teaching and Assessment pages, in Options 1–3.
+   ========================================================================== */
+
+/* Match the current UQ `uq-card-grid uq-card-grid--target-3x` rhythm. */
+body.page-curriculum .hub-content .task-grid,
+body.page-curriculum .hub-content .compact-practice-list,
+body.page-teaching .hub-content .task-grid,
+body.page-teaching .hub-content .compact-practice-list,
+body.page-assessment .hub-content .task-grid,
+body.page-assessment .hub-content .compact-practice-list {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 32px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Current UQ text-card proportions: smaller than the previous Hub cards. */
+body.page-curriculum .hub-content .task-card,
+body.page-curriculum .hub-content .compact-practice-link,
+body.page-teaching .hub-content .task-card,
+body.page-teaching .hub-content .compact-practice-link,
+body.page-assessment .hub-content .task-card,
+body.page-assessment .hub-content .compact-practice-link {
+  box-sizing: border-box !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 250px !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+  padding: 24px !important;
+
+  border: 1px solid #d6d3d7 !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+
+  background: #fff !important;
+  color: #19151c !important;
+  text-decoration: none !important;
+}
+
+/* UQ text-card heading. */
+body.page-curriculum .hub-content .task-card h3,
+body.page-curriculum .hub-content .compact-practice-link h3,
+body.page-teaching .hub-content .task-card h3,
+body.page-teaching .hub-content .compact-practice-link h3,
+body.page-assessment .hub-content .task-card h3,
+body.page-assessment .hub-content .compact-practice-link h3 {
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  color: #19151c !important;
+
+  font-size: 22px !important;
+  line-height: 1.25 !important;
+  font-weight: 500 !important;
+
+  text-decoration: none !important;
+}
+
+/* If a card contains supporting copy, keep it in UQ body style. */
+body.page-curriculum .hub-content .task-card p,
+body.page-curriculum .hub-content .compact-practice-link p,
+body.page-teaching .hub-content .task-card p,
+body.page-teaching .hub-content .compact-practice-link p,
+body.page-assessment .hub-content .task-card p,
+body.page-assessment .hub-content .compact-practice-link p {
+  margin: 0 0 16px !important;
+  color: #363238 !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  font-weight: 400 !important;
+}
+
+/* Purple navigation arrow at the bottom, matching the UQ text-card pattern. */
+body.page-curriculum .hub-content .task-card::after,
+body.page-curriculum .hub-content .compact-practice-link::after,
+body.page-teaching .hub-content .task-card::after,
+body.page-teaching .hub-content .compact-practice-link::after,
+body.page-assessment .hub-content .task-card::after,
+body.page-assessment .hub-content .compact-practice-link::after {
+  content: "→" !important;
+  display: block !important;
+  margin-top: auto !important;
+  padding-top: 24px !important;
+
+  color: #51247a !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 30px !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+/* Keep hover/focus subtle like current UQ cards. */
+body.page-curriculum .hub-content .task-card:hover,
+body.page-curriculum .hub-content .compact-practice-link:hover,
+body.page-teaching .hub-content .task-card:hover,
+body.page-teaching .hub-content .compact-practice-link:hover,
+body.page-assessment .hub-content .task-card:hover,
+body.page-assessment .hub-content .compact-practice-link:hover,
+body.page-curriculum .hub-content .task-card:focus-visible,
+body.page-curriculum .hub-content .compact-practice-link:focus-visible,
+body.page-teaching .hub-content .task-card:focus-visible,
+body.page-teaching .hub-content .compact-practice-link:focus-visible,
+body.page-assessment .hub-content .task-card:focus-visible,
+body.page-assessment .hub-content .compact-practice-link:focus-visible {
+  background: #f7f7f7 !important;
+  border-color: #d6d3d7 !important;
+  text-decoration: none !important;
+}
+
+body.page-curriculum .hub-content .task-card:hover h3,
+body.page-curriculum .hub-content .compact-practice-link:hover h3,
+body.page-teaching .hub-content .task-card:hover h3,
+body.page-teaching .hub-content .compact-practice-link:hover h3,
+body.page-assessment .hub-content .task-card:hover h3,
+body.page-assessment .hub-content .compact-practice-link:hover h3,
+body.page-curriculum .hub-content .task-card:focus-visible h3,
+body.page-curriculum .hub-content .compact-practice-link:focus-visible h3,
+body.page-teaching .hub-content .task-card:focus-visible h3,
+body.page-teaching .hub-content .compact-practice-link:focus-visible h3,
+body.page-assessment .hub-content .task-card:focus-visible h3,
+body.page-assessment .hub-content .compact-practice-link:focus-visible h3 {
+  text-decoration: underline !important;
+  text-decoration-thickness: 1.5px !important;
+  text-underline-offset: 3px !important;
+}
+
+/* Override Option 3's old compact card sizing so all three options share
+   the same current-UQ card component on these framework pages. */
+html[data-design="3"] body.page-curriculum .hub-content .task-grid,
+html[data-design="3"] body.page-curriculum .hub-content .compact-practice-list,
+html[data-design="3"] body.page-teaching .hub-content .task-grid,
+html[data-design="3"] body.page-teaching .hub-content .compact-practice-list,
+html[data-design="3"] body.page-assessment .hub-content .task-grid,
+html[data-design="3"] body.page-assessment .hub-content .compact-practice-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 32px !important;
+}
+
+html[data-design="3"] body.page-curriculum .hub-content .task-card,
+html[data-design="3"] body.page-curriculum .hub-content .compact-practice-link,
+html[data-design="3"] body.page-teaching .hub-content .task-card,
+html[data-design="3"] body.page-teaching .hub-content .compact-practice-link,
+html[data-design="3"] body.page-assessment .hub-content .task-card,
+html[data-design="3"] body.page-assessment .hub-content .compact-practice-link {
+  min-height: 250px !important;
+  padding: 24px !important;
+}
+
+/* Responsive equivalent of the UQ grid. */
+@media (max-width: 1050px) {
+  body.page-curriculum .hub-content .task-grid,
+  body.page-curriculum .hub-content .compact-practice-list,
+  body.page-teaching .hub-content .task-grid,
+  body.page-teaching .hub-content .compact-practice-list,
+  body.page-assessment .hub-content .task-grid,
+  body.page-assessment .hub-content .compact-practice-list,
+  html[data-design="3"] body.page-curriculum .hub-content .task-grid,
+  html[data-design="3"] body.page-curriculum .hub-content .compact-practice-list,
+  html[data-design="3"] body.page-teaching .hub-content .task-grid,
+  html[data-design="3"] body.page-teaching .hub-content .compact-practice-list,
+  html[data-design="3"] body.page-assessment .hub-content .task-grid,
+  html[data-design="3"] body.page-assessment .hub-content .compact-practice-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.page-curriculum .hub-content .task-grid,
+  body.page-curriculum .hub-content .compact-practice-list,
+  body.page-teaching .hub-content .task-grid,
+  body.page-teaching .hub-content .compact-practice-list,
+  body.page-assessment .hub-content .task-grid,
+  body.page-assessment .hub-content .compact-practice-list,
+  html[data-design="3"] body.page-curriculum .hub-content .task-grid,
+  html[data-design="3"] body.page-curriculum .hub-content .compact-practice-list,
+  html[data-design="3"] body.page-teaching .hub-content .task-grid,
+  html[data-design="3"] body.page-teaching .hub-content .compact-practice-list,
+  html[data-design="3"] body.page-assessment .hub-content .task-grid,
+  html[data-design="3"] body.page-assessment .hub-content .compact-practice-list {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  body.page-curriculum .hub-content .task-card,
+  body.page-curriculum .hub-content .compact-practice-link,
+  body.page-teaching .hub-content .task-card,
+  body.page-teaching .hub-content .compact-practice-link,
+  body.page-assessment .hub-content .task-card,
+  body.page-assessment .hub-content .compact-practice-link {
+    min-height: 180px !important;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-21 — Option 1 framework element pages: standard UQ Drupal layout
+   Reference: standard UQ content pages such as Library chatbot
+   ========================================================================== */
+
+/* The generated hero reuses the same current UQ image-hero component as the
+   Curriculum / Teaching / Assessment level above it. */
+body.page-framework-element .framework-element-hero {
+  /* Do not reset horizontal margins here: the global desktop UQ hero rule
+     uses viewport-relative negative margins to make the purple band full bleed. */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Standard article flow: no custom two-column internal hero, no floating meta
+   panel, and no decorative section icons. */
+html[data-design="1"] body.page-framework-element .uq-standard-framework-page {
+  display: block !important;
+  max-width: none;
+}
+
+html[data-design="1"] body.page-framework-element .framework-element-content {
+  max-width: 860px;
+  padding-top: 8px;
+}
+
+html[data-design="1"] body.page-framework-element .framework-element-content .text--l {
+  margin: 0 0 32px;
+  font-size: 20px;
+  line-height: 1.55;
+  color: #363238;
+}
+
+html[data-design="1"] body.page-framework-element .framework-element-content h2 {
+  margin: 38px 0 14px;
+  color: #19151c;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+html[data-design="1"] body.page-framework-element .framework-element-content h2:first-of-type {
+  margin-top: 0;
+}
+
+html[data-design="1"] body.page-framework-element .framework-element-content h3 {
+  margin: 26px 0 10px;
+  color: #19151c;
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+html[data-design="1"] body.page-framework-element .framework-element-content p,
+html[data-design="1"] body.page-framework-element .framework-element-content li {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+html[data-design="1"] body.page-framework-element .framework-element-content ul,
+html[data-design="1"] body.page-framework-element .framework-element-content ol {
+  margin: 0 0 22px;
+  padding-left: 28px;
+}
+
+html[data-design="1"] body.page-framework-element .framework-element-content li + li {
+  margin-top: 8px;
+}
+
+/* Reflection remains interactive, but visually behaves like ordinary page
+   content instead of a bespoke Hub card. */
+html[data-design="1"] body.page-framework-element .framework-checklist--standard {
+  margin: 40px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard h2 {
+  margin-top: 0;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .framework-checklist__intro {
+  margin: 0 0 8px;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .framework-checklist__progress {
+  margin: 0 0 16px;
+  color: #5a555b;
+  font-size: 14px;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .framework-checklist__items {
+  display: block;
+  margin: 0;
+  border-top: 1px solid #d6d3d7;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .framework-checklist__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid #d6d3d7;
+  background: transparent;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .framework-checklist__item input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .framework-checklist__item span {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .framework-checklist__actions {
+  margin-top: 14px;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .checklist-reset {
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 2px solid #51247a;
+  background: #fff;
+  color: #51247a;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .checklist-reset:hover,
+html[data-design="1"] body.page-framework-element .framework-checklist--standard .checklist-reset:focus-visible {
+  background: #f3eef7;
+}
+
+html[data-design="1"] body.page-framework-element .framework-resource-list {
+  margin-bottom: 48px;
+}
+
+/* Prevent any older full-bleed page-hero rules from affecting the rebuilt
+   Option 1 content. */
+html[data-design="1"] body.page-framework-element .uq-standard-framework-page .page-hero,
+html[data-design="1"] body.page-framework-element .uq-standard-framework-page .section-icon {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  html[data-design="1"] body.page-framework-element .framework-element-content {
+    max-width: none;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-21 — Framework element hero full-bleed correction
+   ========================================================================== */
+@media (min-width:1001px) {
+  html[data-design="1"] body.page-framework-element .framework-element-hero {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    background: #4b236f !important;
+  }
+
+  html[data-design="1"] body.page-framework-element .framework-element-hero > .uq-container {
+    width: 100% !important;
+    max-width: 71rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-22 — Option 1 start page remodel
+   Reference: UQ Library Study and learning support
+   ========================================================================== */
+
+body.page-home .option1-start-remodel {
+  margin-top: 32px;
+}
+
+/* Each area is its own full-width UQ-style image pane. */
+body.page-home .option1-start-remodel .option1-area-pane-section {
+  margin: 0 0 40px;
+  padding: 0;
+}
+
+body.page-home .option1-start-remodel .option1-area-pane-section .uq-card-grid {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+body.page-home .option1-start-remodel .option1-area-pane {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 1fr);
+  grid-template-areas: "content image";
+  width: 100%;
+  min-height: 315px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+body.page-home .option1-start-remodel .option1-area-pane .uq-pane__content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 10px 42px 10px 0;
+}
+
+body.page-home .option1-start-remodel .option1-area-pane .uq-pane__image {
+  grid-area: image;
+  width: 100%;
+  min-height: 315px;
+  overflow: hidden;
+}
+
+body.page-home .option1-start-remodel .option1-area-pane .uq-pane__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 315px;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.page-home .option1-start-remodel .uq-pane__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-home .option1-start-remodel .uq-pane__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+body.page-home .option1-start-remodel .uq-pane__description > p:first-child {
+  margin: 0 0 14px;
+}
+
+body.page-home .option1-start-remodel .uq-pane__description ul {
+  margin: 0 0 24px;
+  padding-left: 22px;
+}
+
+body.page-home .option1-start-remodel .uq-pane__description li + li {
+  margin-top: 7px;
+}
+
+body.page-home .option1-start-remodel .button.button--primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 24px;
+  border: 2px solid #51247a;
+  border-radius: 3px;
+  background: #51247a;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+body.page-home .option1-start-remodel .button.button--primary:hover,
+body.page-home .option1-start-remodel .button.button--primary:focus-visible {
+  background: #3b1a59;
+  border-color: #3b1a59;
+}
+
+/* Quick how-tos use the current UQ icon-card pattern. */
+body.page-home .option1-quick-howtos {
+  margin-top: 56px;
+  padding-top: 0;
+}
+
+body.page-home .option1-quick-howtos .uq-section__header {
+  margin-bottom: 24px;
+}
+
+body.page-home .option1-quick-howtos .uq-section__title {
+  margin: 0 0 8px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-home .option1-quick-howtos .uq-section__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.page-home .option1-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+body.page-home .option1-quick-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+body.page-home .option1-quick-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 280px;
+  margin: 0;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+
+body.page-home .option1-quick-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 26px 24px 22px;
+}
+
+body.page-home .option1-quick-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 0 16px;
+  color: #51247a;
+}
+
+body.page-home .option1-quick-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body.page-home .option1-quick-card .uq-card__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-home .option1-quick-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+body.page-home .option1-quick-card .uq-card__description {
+  margin: 0 0 20px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.page-home .option1-quick-arrow {
+  margin-top: auto;
+  color: #51247a;
+  font-size: 31px;
+  line-height: 1;
+}
+
+body.page-home .option1-quick-card:hover,
+body.page-home .option1-quick-card:focus-within {
+  background: #f7f7f7;
+}
+
+body.page-home .option1-quick-card:hover .uq-card__title a,
+body.page-home .option1-quick-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* Option 2 retains its existing image-card homepage unchanged. */
+html[data-design="1"] body.page-home .option12-home.option2-only {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  body.page-home .option1-start-remodel .option1-area-pane {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "content";
+  }
+
+  body.page-home .option1-start-remodel .option1-area-pane .uq-pane__image,
+  body.page-home .option1-start-remodel .option1-area-pane .uq-pane__image img {
+    min-height: 250px;
+  }
+
+  body.page-home .option1-start-remodel .option1-area-pane .uq-pane__content {
+    padding: 24px 0 0;
+  }
+}
+
+@media (max-width: 700px) {
+  body.page-home .option1-quick-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  body.page-home .option1-quick-card {
+    min-height: 240px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-22 — Option 1 homepage Support section
+   Matches current UQ two-up text cards.
+   ========================================================================== */
+body.page-home .option1-support-section {
+  margin-top: 56px;
+  padding-top: 0;
+}
+
+body.page-home .option1-support-section .uq-section__header {
+  margin-bottom: 24px;
+}
+
+body.page-home .option1-support-section .uq-section__title {
+  margin: 0;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-home .option1-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+body.page-home .option1-support-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+body.page-home .option1-support-card {
+  display: flex;
+  width: 100%;
+  min-height: 214px;
+  margin: 0;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+
+body.page-home .option1-support-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px;
+}
+
+body.page-home .option1-support-card .uq-card__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-home .option1-support-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+body.page-home .option1-support-card .uq-card__description {
+  margin: 0 0 18px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.page-home .option1-support-arrow {
+  margin-top: auto;
+  color: #51247a;
+  font-size: 31px;
+  line-height: 1;
+}
+
+body.page-home .option1-support-card:hover,
+body.page-home .option1-support-card:focus-within {
+  background: #f7f7f7;
+}
+
+body.page-home .option1-support-card:hover .uq-card__title a,
+body.page-home .option1-support-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  body.page-home .option1-support-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-22 — Option 1 Curriculum / Teaching / Assessment remodel
+   Reference: UQ Library Digital Essentials modules
+   ========================================================================== */
+
+/* Existing framework-page content remains available in Options 2 and 3 only. */
+html[data-design="1"] .option23-shared {
+  display: none !important;
+}
+html[data-design="2"] .option23-shared,
+html[data-design="3"] .option23-shared {
+  display: block;
+}
+
+/* Option 1 framework area overview. */
+.option1-framework-overview {
+  margin-top: 8px;
+}
+
+.option1-framework-overview .uq-section {
+  margin: 0 0 54px;
+  padding: 0;
+}
+
+.option1-framework-overview .uq-section__header {
+  margin-bottom: 24px;
+}
+
+.option1-framework-overview .uq-section__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option1-framework-overview .uq-section__description {
+  max-width: 900px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.option1-framework-overview .uq-section__description p {
+  margin: 0;
+}
+
+/* 2x2 image-and-links grid, matching Digital Essentials. */
+.option1-framework-area-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px 32px;
+  align-items: start;
+}
+
+.option1-framework-area-grid > .block {
+  min-width: 0;
+}
+
+.option1-framework-area-pane {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.option1-framework-area-pane .uq-pane__image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  margin: 0 0 20px;
+  overflow: hidden;
+}
+
+.option1-framework-area-pane .uq-pane__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.option1-framework-area-pane .uq-pane__content {
+  padding: 0;
+}
+
+.option1-framework-area-pane .uq-pane__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option1-framework-area-pane .uq-pane__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.option1-framework-area-pane .option1-area-summary {
+  margin: 0 0 12px;
+}
+
+.option1-framework-area-pane .uq-pane__description ul {
+  margin: 0;
+  padding-left: 23px;
+}
+
+.option1-framework-area-pane .uq-pane__description li + li {
+  margin-top: 8px;
+}
+
+.option1-framework-area-pane .uq-pane__description a {
+  color: #51247a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Where to start — shaded icon panes from Digital Essentials. */
+.option1-start-pane-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.option1-start-pane-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.option1-start-pane {
+  display: flex;
+  width: 100%;
+  min-height: 360px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #f3f2f3;
+}
+
+.option1-start-pane .uq-pane__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 26px 24px 24px;
+}
+
+.option1-start-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 0 18px;
+  color: #51247a;
+}
+
+.option1-start-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.option1-start-pane .uq-pane__title {
+  margin: 0 0 12px;
+  color: #19151c;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option1-start-pane .uq-pane__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.option1-start-pane .uq-pane__description p {
+  margin: 0 0 18px;
+}
+
+.option1-start-links {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.option1-start-links li + li {
+  margin-top: 10px;
+}
+
+.option1-start-pane a {
+  color: #51247a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.option1-start-pane .uq-pane__actions {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.option1-start-pane .uq-pane__actions a {
+  font-weight: 500;
+}
+
+@media (max-width: 820px) {
+  .option1-framework-area-grid,
+  .option1-start-pane-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .option1-start-pane {
+    min-height: 0;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-22 — Support on Option 1 framework overview pages
+   ========================================================================== */
+.option1-framework-overview .option1-framework-support {
+  margin-top: 56px;
+  margin-bottom: 48px;
+  padding-top: 0;
+}
+
+.option1-framework-overview .option1-framework-support .uq-section__header {
+  margin-bottom: 24px;
+}
+
+.option1-framework-overview .option1-framework-support .uq-section__title {
+  margin: 0;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option1-framework-overview .option1-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.option1-framework-overview .option1-support-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.option1-framework-overview .option1-support-card {
+  display: flex;
+  width: 100%;
+  min-height: 214px;
+  margin: 0;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.option1-framework-overview .option1-support-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px;
+}
+
+.option1-framework-overview .option1-support-card .uq-card__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option1-framework-overview .option1-support-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+.option1-framework-overview .option1-support-card .uq-card__description {
+  margin: 0 0 18px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.option1-framework-overview .option1-support-arrow {
+  margin-top: auto;
+  color: #51247a;
+  font-size: 31px;
+  line-height: 1;
+}
+
+.option1-framework-overview .option1-support-card:hover,
+.option1-framework-overview .option1-support-card:focus-within {
+  background: #f7f7f7;
+}
+
+.option1-framework-overview .option1-support-card:hover .uq-card__title a,
+.option1-framework-overview .option1-support-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* ==========================================================================
+   Official UQ Design System icons
+   The prototype now uses the same UQ icon-font classes used on current UQ
+   Drupal pages, with icon names aligned to the UqIcon Storybook catalogue.
+   ========================================================================== */
+
+/* Login icon in the replicated UQ shell. */
+.uq-login-link .uq-login-icon {
+  flex: 0 0 auto;
+  margin-right: 8px;
+  color: #51247a;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* Existing section-icon layout retained, but artwork now comes from UQ icons. */
+.section-icon.uq-icon {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+  color: #51247a;
+  font-size: 24px;
+  line-height: 1;
+  vertical-align: -0.1em;
+  background: transparent;
+  border: 0;
+}
+
+.section-icon.uq-icon::before {
+  display: inline-block;
+}
+
+/* Remove old inline-SVG-specific visual rules. */
+.section-icon svg,
+.option1-quick-icon svg,
+.option1-start-icon svg {
+  display: none !important;
+}
+
+/* Official icons in Option 1 Quick how-tos. */
+body.page-home .option1-quick-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: 58px;
+  margin: 0 0 16px;
+  color: #51247a;
+}
+
+body.page-home .option1-quick-icon .uq-icon {
+  color: #51247a;
+  font-size: 52px;
+  line-height: 1;
+}
+
+/* Official icons in Where to start panes. */
+.option1-start-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: 56px;
+  margin: 0 0 18px;
+  color: #51247a;
+}
+
+.option1-start-icon .uq-icon {
+  color: #51247a;
+  font-size: 52px;
+  line-height: 1;
+}
+
+@media (max-width: 700px) {
+  .option1-framework-overview .option1-support-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-22 — Remove hero subtitles and remodel Option 1 Why page with
+   current UQ Drupal component patterns.
+   ========================================================================== */
+
+/* Hero title panels no longer carry subtitle/description copy. */
+.uq-hero__content {
+  padding-bottom: 32px;
+}
+
+/* Standard UQ page rhythm for Option 1 Why page. */
+.why-option1-uq {
+  margin-top: 0;
+}
+
+.why-option1-uq .uq-section {
+  margin: 0 0 56px;
+  padding: 0;
+}
+
+.why-option1-uq .uq-section__header {
+  margin-bottom: 24px;
+}
+
+.why-option1-uq .uq-section__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why-option1-uq .uq-section__description {
+  max-width: 900px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.why-option1-uq .uq-section__description p {
+  margin: 0 0 14px;
+}
+
+/* Six-piece section: current UQ 3-up icon cards. */
+.why-piece-grid,
+.why-practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.why-piece-grid > .block,
+.why-practice-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.why-piece-card,
+.why-practice-card {
+  display: flex;
+  width: 100%;
+  min-height: 275px;
+  margin: 0;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.why-piece-card .uq-card__content,
+.why-practice-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px;
+}
+
+.why-piece-card .uq-card__icon,
+.why-practice-card .uq-card__icon {
+  margin: 0 0 18px;
+  color: #51247a;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.why-piece-card .uq-card__title,
+.why-practice-card .uq-card__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why-piece-card .uq-card__description,
+.why-practice-card .uq-card__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.why-practice-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+.why-practice-card:hover,
+.why-practice-card:focus-within {
+  background: #f7f7f7;
+}
+
+.why-practice-card:hover .uq-card__title a,
+.why-practice-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.why-piece-caption {
+  max-width: 900px;
+  margin: 24px 0 0;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Framework questions: current UQ 2x icon panes. */
+.why-framework-grid,
+.why-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.why-framework-grid > .block,
+.why-outcome-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.why-framework-pane,
+.why-outcome-pane {
+  display: flex;
+  width: 100%;
+  min-height: 220px;
+  margin: 0;
+  border: 0;
+  background: #fff;
+}
+
+.why-framework-pane .uq-pane__content,
+.why-outcome-pane .uq-pane__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px;
+}
+
+.why-framework-pane .uq-pane__icon,
+.why-outcome-pane .uq-pane__icon {
+  margin: 0 0 16px;
+  color: #51247a;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.why-framework-pane .uq-pane__title,
+.why-outcome-pane .uq-pane__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why-framework-pane .uq-pane__description,
+.why-outcome-pane .uq-pane__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.why-outcome-pane {
+  background: #f3f2f3;
+}
+
+/* Current UQ 1x image-pane pattern for policy/participation context. */
+.why-participation-pane {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 1fr);
+  grid-template-areas: "content image";
+  width: 100%;
+  min-height: 360px;
+  margin: 0;
+  border: 0;
+  background: #fff;
+}
+
+.why-participation-pane .uq-pane__content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 42px 24px 0;
+}
+
+.why-participation-pane .uq-pane__image {
+  grid-area: image;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.why-participation-pane .uq-pane__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.why-participation-pane .uq-pane__title {
+  margin: 0 0 12px;
+  color: #19151c;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why-participation-pane .uq-pane__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.why-participation-pane .uq-pane__description h3 {
+  margin: 22px 0 8px;
+  color: #19151c;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+/* Source disclosure: ordinary page content. */
+.why-uq-sources details {
+  max-width: 900px;
+  padding: 16px 0;
+  border-top: 1px solid #d6d3d7;
+  border-bottom: 1px solid #d6d3d7;
+}
+
+.why-uq-sources summary {
+  color: #19151c;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.why-uq-sources p,
+.why-uq-sources li {
+  color: #363238;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1000px) {
+  .why-piece-grid,
+  .why-practice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .why-piece-grid,
+  .why-practice-grid,
+  .why-framework-grid,
+  .why-outcome-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .why-participation-pane {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "content";
+  }
+
+  .why-participation-pane .uq-pane__content {
+    padding: 24px 0 0;
+  }
+
+  .why-participation-pane .uq-pane__image,
+  .why-participation-pane .uq-pane__image img {
+    min-height: 250px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-22 — Why page feature panels (framework + participation)
+   Inspired by current UQ image/text content panels.
+   ========================================================================== */
+
+.why-feature-stack {
+  display: grid;
+  gap: 32px;
+}
+
+.uq-feature-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 384px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  padding: 40px;
+  background: #fff;
+}
+
+.uq-feature-panel.is-reversed {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 384px);
+}
+
+.uq-feature-panel.is-reversed .uq-feature-panel__media {
+  order: 2;
+}
+
+.uq-feature-panel.is-reversed .uq-feature-panel__content {
+  order: 1;
+}
+
+.uq-feature-panel__media {
+  width: 100%;
+}
+
+.uq-feature-panel__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.uq-feature-panel__content {
+  max-width: 520px;
+}
+
+.uq-feature-panel__title {
+  margin: 0 0 20px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.uq-feature-panel__text {
+  margin: 0 0 28px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.uq-feature-panel__link {
+  color: #51247a;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Keep the framework section visually focused on these image panels. */
+.why-uq-framework .uq-section__description,
+.why-uq-participation .uq-section__description {
+  max-width: 920px;
+}
+
+@media (max-width: 900px) {
+  .uq-feature-panel,
+  .uq-feature-panel.is-reversed {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px;
+  }
+
+  .uq-feature-panel.is-reversed .uq-feature-panel__media,
+  .uq-feature-panel.is-reversed .uq-feature-panel__content {
+    order: initial;
+  }
+
+  .uq-feature-panel__content {
+    max-width: none;
+  }
+
+  .uq-feature-panel__title {
+    font-size: 26px;
+  }
+
+  .uq-feature-panel__media img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 560px) {
+  .uq-feature-panel {
+    padding: 20px;
+  }
+
+  .uq-feature-panel__title {
+    font-size: 23px;
+  }
+
+  .uq-feature-panel__text {
+    font-size: 15px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-25 — Option 1 Why page framework cards
+   Match current UQ `uq-card uq-card--image` treatment used on
+   Resources and support for teaching.
+   ========================================================================== */
+
+.why-framework-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.why-framework-image-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.why-framework-image-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.why-framework-image-card .uq-card__image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #f3f2f3;
+}
+
+.why-framework-image-card .uq-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.why-framework-image-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.why-framework-image-card .uq-card__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.why-framework-image-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+.why-framework-image-card .uq-card__description {
+  margin: 0 0 20px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.why-framework-card-arrow {
+  margin-top: auto;
+  color: #51247a;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.why-framework-image-card:hover,
+.why-framework-image-card:focus-within {
+  background: #f7f7f7;
+}
+
+.why-framework-image-card:hover .uq-card__title a,
+.why-framework-image-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .why-framework-image-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-29 — Option 2 Curriculum / Teaching / Assessment remodel
+   UQ reference patterns:
+   - Research and publish: uq-pane uq-pane--image
+   - Option 1 start page: image/content pane + primary button
+   - Existing Option 1 support cards
+   ========================================================================== */
+
+/* Hide the former shared Option 2/3 layout only in Option 2.
+   Option 3 retains it unchanged. */
+html[data-design="2"] body.page-curriculum .option23-shared,
+html[data-design="2"] body.page-teaching .option23-shared,
+html[data-design="2"] body.page-assessment .option23-shared {
+  display: none !important;
+}
+
+html[data-design="3"] body.page-curriculum .option23-shared,
+html[data-design="3"] body.page-teaching .option23-shared,
+html[data-design="3"] body.page-assessment .option23-shared {
+  display: block;
+}
+
+html[data-design="1"] .option2-framework-remodel,
+html[data-design="3"] .option2-framework-remodel {
+  display: none !important;
+}
+
+html[data-design="2"] .option2-framework-remodel {
+  display: block;
+}
+
+.option2-framework-remodel {
+  margin-top: 8px;
+}
+
+.option2-framework-remodel > .uq-section,
+.option2-framework-remodel .option2-real-section {
+  margin: 0 0 48px;
+  padding: 0;
+}
+
+.option2-framework-remodel .uq-section__header {
+  margin-bottom: 24px;
+}
+
+.option2-framework-remodel .uq-section__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option2-framework-remodel .uq-section__description {
+  max-width: 900px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.option2-framework-remodel .uq-section__description p {
+  margin: 0;
+}
+
+/* REAL area panes: closely model current UQ research-and-publish image panes. */
+.option2-real-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.option2-real-pane {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 46%);
+  grid-template-areas: "content image";
+  width: 100%;
+  min-height: 330px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.option2-real-pane .uq-pane__content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 24px 48px 24px 0;
+}
+
+.option2-real-pane .uq-pane__image {
+  grid-area: image;
+  width: 100%;
+  min-height: 330px;
+  overflow: hidden;
+}
+
+.option2-real-pane .uq-pane__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.option2-real-pane .uq-pane__title {
+  margin: 0 0 12px;
+  color: #19151c;
+  font-size: 27px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option2-real-pane .uq-pane__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.option2-real-pane .uq-pane__description > p {
+  margin: 0 0 14px;
+}
+
+.option2-real-links {
+  margin: 0;
+  padding-left: 23px;
+}
+
+.option2-real-links li + li {
+  margin-top: 9px;
+}
+
+.option2-real-links a {
+  color: #51247a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Full framework pane: same visual hierarchy as Option 1 start page. */
+.option2-full-framework {
+  margin-top: 56px !important;
+}
+
+.option2-full-framework-pane {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 46%);
+  grid-template-areas: "content image";
+  width: 100%;
+  min-height: 315px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.option2-full-framework-pane .uq-pane__content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 24px 48px 24px 0;
+}
+
+.option2-full-framework-pane .uq-pane__image {
+  grid-area: image;
+  min-height: 315px;
+  overflow: hidden;
+}
+
+.option2-full-framework-pane .uq-pane__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 315px;
+  object-fit: cover;
+}
+
+.option2-full-framework-pane .uq-pane__title {
+  margin: 0 0 12px;
+  color: #19151c;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option2-full-framework-pane .uq-pane__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.option2-full-framework-pane .uq-pane__description p {
+  margin: 0 0 14px;
+}
+
+.option2-full-framework-pane .uq-pane__actions {
+  margin-top: 10px;
+}
+
+.option2-framework-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 24px;
+  border: 2px solid #51247a;
+  border-radius: 3px;
+  background: #51247a;
+  color: #fff !important;
+  font-weight: 500;
+  text-decoration: none !important;
+}
+
+.option2-framework-button:hover,
+.option2-framework-button:focus-visible {
+  background: #3b1a59;
+  border-color: #3b1a59;
+}
+
+/* Support copied from Option 1. */
+.option2-support-section {
+  margin-top: 56px !important;
+  margin-bottom: 48px !important;
+}
+
+.option2-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.option2-support-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.option2-support-card {
+  display: flex;
+  width: 100%;
+  min-height: 214px;
+  margin: 0;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.option2-support-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px;
+}
+
+.option2-support-card .uq-card__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.option2-support-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+.option2-support-card .uq-card__description {
+  margin: 0 0 18px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.option2-support-arrow {
+  margin-top: auto;
+  color: #51247a;
+  font-size: 31px;
+  line-height: 1;
+}
+
+.option2-support-card:hover,
+.option2-support-card:focus-within {
+  background: #f7f7f7;
+}
+
+.option2-support-card:hover .uq-card__title a,
+.option2-support-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 820px) {
+  .option2-real-pane,
+  .option2-full-framework-pane {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "content";
+  }
+
+  .option2-real-pane .uq-pane__content,
+  .option2-full-framework-pane .uq-pane__content {
+    padding: 24px 0 0;
+  }
+
+  .option2-real-pane .uq-pane__image,
+  .option2-real-pane .uq-pane__image img,
+  .option2-full-framework-pane .uq-pane__image,
+  .option2-full-framework-pane .uq-pane__image img {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 700px) {
+  .option2-support-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-29 — Start page intro, Why section and Option 2 Support
+   ========================================================================== */
+
+/* Shared short introduction for all three prototype options. */
+body.page-home .hub-start-intro {
+  margin: 6px 0 34px;
+  padding: 0;
+}
+
+body.page-home .hub-start-intro .uq-section__header {
+  margin: 0;
+}
+
+body.page-home .hub-start-intro .uq-section__description {
+  max-width: 820px;
+  color: #363238;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+body.page-home .hub-start-intro .uq-section__description p {
+  margin: 0;
+}
+
+/* Brief Why this matters block for Options 1 and 2. */
+body.page-home .home-why-section {
+  margin-top: 52px;
+  margin-bottom: 52px;
+  padding: 32px 0;
+  border-top: 1px solid #d6d3d7;
+  border-bottom: 1px solid #d6d3d7;
+}
+
+body.page-home .home-why-section .uq-section__header {
+  margin: 0;
+}
+
+body.page-home .home-why-section .uq-section__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-home .home-why-section .uq-section__description {
+  max-width: 780px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+body.page-home .home-why-section .uq-section__description p {
+  margin: 0 0 12px;
+}
+
+body.page-home .home-why-section .home-why-link {
+  margin-bottom: 0 !important;
+}
+
+body.page-home .home-why-section a {
+  color: #51247a;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Option 2 uses the same Support cards already established for Option 1. */
+body.page-home .option2-home-support {
+  margin-top: 0;
+  margin-bottom: 48px;
+}
+
+html[data-design="1"] body.page-home .option2-home-why,
+html[data-design="1"] body.page-home .option2-home-support,
+html[data-design="3"] body.page-home .option2-home-why,
+html[data-design="3"] body.page-home .option2-home-support {
+  display: none !important;
+}
+
+html[data-design="2"] body.page-home .option2-home-why,
+html[data-design="2"] body.page-home .option2-home-support {
+  display: block;
+}
+
+@media (max-width: 700px) {
+  body.page-home .hub-start-intro .uq-section__description {
+    font-size: 16px;
+  }
+
+  body.page-home .home-why-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 26px 0;
+  }
+}
+
+
+/* ==========================================================================
+   2026-09-29 — Option 2 Why page rebuilt with current UQ component patterns
+   ========================================================================== */
+
+.why-option2-uq {
+  margin-top: 8px;
+}
+
+.why-option2-uq .uq-section {
+  margin: 0 0 56px;
+  padding: 0;
+}
+
+.why-option2-uq .uq-section__header {
+  margin-bottom: 24px;
+}
+
+.why-option2-uq .uq-section__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why-option2-uq .uq-section__description {
+  max-width: 900px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.why-option2-uq .uq-section__description p {
+  margin: 0;
+}
+
+.why2-intro .uq-section__description {
+  max-width: 820px;
+}
+
+.why2-intro .text--l {
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+/* Six conceptual pieces: current UQ 3-up icon card treatment. */
+.why2-six-grid,
+.why2-practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.why2-six-grid > .block,
+.why2-practice-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.why2-icon-card,
+.why2-practice-card {
+  display: flex;
+  width: 100%;
+  min-height: 250px;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.why2-icon-card .uq-card__content,
+.why2-practice-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 24px;
+}
+
+.why2-icon-card .uq-card__icon,
+.why2-practice-card .uq-card__icon {
+  margin: 0 0 18px;
+  color: #51247a;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.why2-icon-card .uq-card__title,
+.why2-practice-card .uq-card__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why2-icon-card .uq-card__description,
+.why2-practice-card .uq-card__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Access section: standard one-column UQ image pane. */
+.why2-access-pane {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 46%);
+  grid-template-areas: "content image";
+  width: 100%;
+  min-height: 330px;
+  margin: 0;
+  border: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.why2-access-pane .uq-pane__content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 48px 24px 0;
+}
+
+.why2-access-pane .uq-pane__image {
+  grid-area: image;
+  min-height: 330px;
+  overflow: hidden;
+}
+
+.why2-access-pane .uq-pane__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+}
+
+.why2-access-pane .uq-pane__title {
+  margin: 0 0 12px;
+  color: #19151c;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why2-access-pane .uq-pane__description {
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Statistic as a simple shaded UQ text pane rather than a bespoke visual stat. */
+.why2-stat-pane {
+  background: #f3f2f3;
+  border: 0;
+}
+
+.why2-stat-pane .uq-pane__content {
+  padding: 28px 32px;
+}
+
+.why2-stat-value strong {
+  display: block;
+  margin: 0 0 8px;
+  color: #51247a;
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.why2-stat-pane p {
+  max-width: 700px;
+  margin: 0;
+  color: #363238;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* Outcomes as 2-up shaded panes. */
+.why2-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.why2-outcome-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.why2-outcome-pane {
+  display: flex;
+  width: 100%;
+  min-height: 180px;
+  background: #f3f2f3;
+  border: 0;
+}
+
+.why2-outcome-pane .uq-pane__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+}
+
+.why2-outcome-pane .uq-pane__icon {
+  margin: 0 0 14px;
+  color: #51247a;
+  font-size: 44px;
+  line-height: 1;
+}
+
+.why2-outcome-pane .uq-pane__title {
+  margin: 0;
+  color: #19151c;
+  font-size: 23px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+/* Practice links use current UQ icon-navigation card language. */
+.why2-practice-card .uq-card__title a {
+  color: #19151c;
+  text-decoration: none;
+}
+
+.why2-card-arrow {
+  margin-top: auto;
+  padding-top: 20px;
+  color: #51247a;
+  font-size: 31px;
+  line-height: 1;
+}
+
+.why2-practice-card:hover,
+.why2-practice-card:focus-within {
+  background: #f7f7f7;
+}
+
+.why2-practice-card:hover .uq-card__title a,
+.why2-practice-card:focus-within .uq-card__title a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Policy/source disclosure uses normal page-content styling. */
+.why2-sources details {
+  max-width: 900px;
+  padding: 16px 0;
+  border-top: 1px solid #d6d3d7;
+  border-bottom: 1px solid #d6d3d7;
+}
+
+.why2-sources summary {
+  color: #19151c;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.why2-sources p,
+.why2-sources li {
+  color: #363238;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1000px) {
+  .why2-six-grid,
+  .why2-practice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .why2-six-grid,
+  .why2-practice-grid,
+  .why2-outcome-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .why2-access-pane {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "content";
+  }
+
+  .why2-access-pane .uq-pane__content {
+    padding: 24px 0 0;
+  }
+
+  .why2-access-pane .uq-pane__image,
+  .why2-access-pane .uq-pane__image img {
+    min-height: 250px;
+  }
+}
+
+
+/* ========================================================================== 
+   2026-10-02 — Option 3 compact framework pages
+   Curriculum / Teaching / Assessment only
+   ========================================================================== */
+
+/* Option 3 gets its own compact view. Hide the former quick-how-to block and
+   the long stacked REAL sections. Options 1 and 2 remain unchanged. */
+html[data-design="3"] body.page-curriculum .option23-shared,
+html[data-design="3"] body.page-teaching .option23-shared,
+html[data-design="3"] body.page-assessment .option23-shared {
+  display:none !important;
+}
+
+html[data-design="1"] .option3-framework-compact,
+html[data-design="2"] .option3-framework-compact {
+  display:none !important;
+}
+html[data-design="3"] .option3-framework-compact {
+  display:block !important;
+}
+
+.option3-framework-compact {
+  margin-top:4px;
+}
+.option3-compact-intro {
+  margin:0 0 18px;
+  padding:0;
+}
+.option3-compact-intro .uq-section__header { margin:0; }
+.option3-compact-intro .uq-section__title {
+  margin:0 0 6px;
+  color:#19151c;
+  font-size:27px;
+  line-height:1.2;
+  font-weight:500;
+}
+.option3-compact-intro .uq-section__description {
+  max-width:900px;
+  color:#363238;
+  font-size:15px;
+  line-height:1.45;
+}
+.option3-compact-intro .uq-section__description p { margin:0; }
+
+/* Dense 2 × 2 area layout: all framework questions stay visible without the
+   large UQ navigation-card height, keeping scrolling to a minimum. */
+.option3-compact-area-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  align-items:stretch;
+}
+.option3-compact-area {
+  min-width:0;
+  margin:0;
+  padding:16px 18px;
+  border:1px solid #d6d3d7;
+  border-radius:2px;
+  background:#fff;
+}
+.option3-compact-area__title {
+  margin:0 0 8px;
+  color:#19151c;
+  font-size:20px;
+  line-height:1.2;
+  font-weight:500;
+}
+.option3-compact-area__links {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.option3-compact-area__links li {
+  margin:0;
+  border-top:1px solid #e4e1e5;
+}
+.option3-compact-area__links li:last-child {
+  border-bottom:1px solid #e4e1e5;
+}
+.option3-compact-area__links a {
+  position:relative;
+  display:block;
+  padding:7px 25px 7px 0;
+  color:#51247a;
+  font-size:13.5px;
+  line-height:1.3;
+  text-decoration:none;
+}
+.option3-compact-area__links a::after {
+  content:"→";
+  position:absolute;
+  top:7px;
+  right:1px;
+  color:#51247a;
+}
+.option3-compact-area__links a:hover,
+.option3-compact-area__links a:focus-visible {
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+
+@media (max-width:760px) {
+  .option3-compact-area-grid {
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .option3-compact-area { padding:15px 17px; }
+}
+
+
+/* ==========================================================================
+   2026-10-02 — Why-page evidence refresh + Option 3 UQ component cleanup
+   ========================================================================== */
+
+/* Shared evidence section: restrained, three figures only. */
+.why-data-section {
+  margin: 0 0 56px;
+  padding: 0;
+}
+
+.why-data-section .uq-section__header {
+  margin-bottom: 24px;
+}
+
+.why-data-section .uq-section__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why-data-section .uq-section__description {
+  max-width: 860px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.why-data-section .uq-section__description p {
+  margin: 0 0 10px;
+}
+
+.why-data-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.why-data-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.why-data-card {
+  display: flex;
+  width: 100%;
+  min-height: 228px;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.why-data-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.why-data-card__value {
+  margin-bottom: 14px;
+  color: #51247a;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.why-data-card .uq-card__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.why-data-card .uq-card__description {
+  margin: 0;
+  color: #363238;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.why-data-source {
+  max-width: 900px;
+  margin: 14px 0 0;
+  color: #5a555c;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Option 3: make the internal page heading behave like a normal UQ sub-page heading. */
+body.page-why .focus-why-hero--uq {
+  max-width: 760px;
+  margin: 0 0 44px;
+  padding: 0;
+  border: 0;
+  background: #fff;
+}
+
+body.page-why .focus-why-hero--uq .uq-section__header {
+  margin: 0;
+}
+
+body.page-why .focus-why-hero--uq .uq-section__title {
+  max-width: none;
+  margin: 0 0 12px;
+  color: #19151c;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-why .focus-why-hero--uq .uq-section__description {
+  max-width: 720px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+body.page-why .focus-why-hero--uq .uq-section__description p {
+  margin: 0 0 10px;
+}
+
+body.page-why .focus-why-hero--uq .focus-why-lead {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+body.page-why .focus-why-hero--uq .focus-why-intro {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #363238;
+}
+
+/* Option 3: replace the bespoke "Six pieces" list with normal UQ text cards. */
+body.page-why .focus-why-principles {
+  max-width: 760px;
+  margin: 0 0 56px;
+  padding: 0;
+  border: 0;
+}
+
+body.page-why .focus-why-principles .uq-section__header {
+  margin-bottom: 24px;
+}
+
+body.page-why .focus-why-principles .uq-section__title {
+  margin: 0 0 10px;
+  color: #19151c;
+  font-size: 26px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+body.page-why .focus-why-principles .uq-section__description {
+  max-width: 720px;
+  color: #363238;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.focus-principle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.focus-principle-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+
+.focus-principle-card {
+  display: flex;
+  width: 100%;
+  min-height: 250px;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.focus-principle-card .uq-card__content {
+  padding: 22px;
+}
+
+.focus-principle-card .uq-card__title {
+  margin: 0 0 12px;
+  color: #19151c;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.focus-principle-card .uq-card__description {
+  color: #363238;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* The compact Option 3 column remains narrower, but UQ components fill it naturally. */
+html[data-design="3"] body.page-why .why-data-section--option3,
+html[data-design="3"] body.page-why .focus-why-principles {
+  max-width: 760px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 900px) {
+  .why-data-grid,
+  .focus-principle-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .why-data-card,
+  .focus-principle-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  body.page-why .focus-why-hero--uq .uq-section__title,
+  .why-data-section .uq-section__title {
+    font-size: 26px;
+  }
+
+  .why-data-card__value {
+    font-size: 34px;
+  }
+}
+
+
+/* ========================================================================== 
+   2026-10-02 — Shared start intro + Option 3 UQ card treatment
+   ========================================================================== */
+
+/* Shared introduction for all three home-page options. */
+body.page-home .hub-start-intro {
+  margin: 6px 0 38px;
+  padding: 0;
+}
+body.page-home .hub-start-intro .uq-section__description {
+  max-width: 860px;
+  color: #363238;
+  font-size: 17px;
+  line-height: 1.55;
+}
+body.page-home .hub-start-intro .uq-section__description p {
+  margin: 0 0 10px;
+}
+body.page-home .hub-start-intro .hub-start-intro__link {
+  margin: 0;
+}
+body.page-home .hub-start-intro .hub-start-intro__link a {
+  color: #51247a;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Belt-and-braces hiding so Option 3 never repeats the Option 2 image-card set. */
+html[data-design="3"] body.page-home .option12-home.option2-only,
+html[data-design="3"] body.page-home .option2-home-support,
+html[data-design="3"] body.page-home .option2-home-why,
+html[data-design="3"] body.page-home .option1-start-remodel {
+  display: none !important;
+}
+
+/* Option 3 framework pages: use the same standard UQ text-card language used on
+   current Library sub-pages, but keep the 2x2 compact footprint. */
+.option3-uq-area-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.option3-uq-area-grid > .block {
+  display: flex;
+  min-width: 0;
+}
+.option3-uq-area-card {
+  display: flex;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  border: 1px solid #d6d3d7;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: none;
+}
+.option3-uq-area-card .uq-card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 22px;
+}
+.option3-uq-area-card .uq-card__title {
+  margin: 0 0 12px;
+  color: #19151c;
+  font-size: 21px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+.option3-uq-area-card .uq-card__description {
+  margin: 0;
+  color: #363238;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.option3-uq-link-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.option3-uq-link-list li {
+  margin: 0;
+  border-top: 1px solid #e4e1e5;
+}
+.option3-uq-link-list li:last-child {
+  border-bottom: 1px solid #e4e1e5;
+}
+.option3-uq-link-list a {
+  position: relative;
+  display: block;
+  padding: 9px 28px 9px 0;
+  color: #51247a;
+  font-size: 14px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.option3-uq-link-list a::after {
+  content: "→";
+  position: absolute;
+  top: 9px;
+  right: 2px;
+  color: #51247a;
+}
+.option3-uq-link-list a:hover,
+.option3-uq-link-list a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Override the older prototype-specific compact area boxes. */
+html[data-design="3"] body.page-curriculum .option3-compact-area-grid,
+html[data-design="3"] body.page-teaching .option3-compact-area-grid,
+html[data-design="3"] body.page-assessment .option3-compact-area-grid {
+  display: none !important;
+}
+
+html[data-design="3"] body.page-curriculum .option3-compact-intro,
+html[data-design="3"] body.page-teaching .option3-compact-intro,
+html[data-design="3"] body.page-assessment .option3-compact-intro {
+  margin-bottom: 22px;
+}
+html[data-design="3"] body.page-curriculum .option3-compact-intro .uq-section__title,
+html[data-design="3"] body.page-teaching .option3-compact-intro .uq-section__title,
+html[data-design="3"] body.page-assessment .option3-compact-intro .uq-section__title {
+  font-size: 28px;
+  line-height: 1.25;
+}
+html[data-design="3"] body.page-curriculum .option3-compact-intro .uq-section__description,
+html[data-design="3"] body.page-teaching .option3-compact-intro .uq-section__description,
+html[data-design="3"] body.page-assessment .option3-compact-intro .uq-section__description {
+  max-width: 900px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .option3-uq-area-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .option3-uq-area-card .uq-card__content {
+    padding: 18px 20px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-10-02 — UQ Design System typography alignment + Option 3 icon/support
+   Official UQDS typography:
+   Body: Roboto 16px / 1.6
+   H1: Montserrat 40px / 1.2
+   H2: Roboto 32px / 1.2
+   H3: Roboto 24px / 1.2
+   H4: Roboto 20px / 1.2
+   H5: Roboto 18px / 1.2
+   H6: Roboto 16px / 1.2
+   Heading weight: 500
+   ========================================================================== */
+
+:root {
+  --ith-font-body: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ith-font-title: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+/* Keep the existing UQ shell structure; align its typography with UQDS. */
+html,
+body {
+  font-family: var(--ith-font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.uq-sidebar-layout__main,
+.hub-content,
+.uq-sidebar-layout__main p,
+.uq-sidebar-layout__main li,
+.uq-sidebar-layout__main a,
+.uq-sidebar-layout__main button {
+  font-family: var(--ith-font-body);
+}
+
+/* UQDS heading scale for page content. */
+.uq-sidebar-layout__main h1 {
+  font-family: var(--ith-font-title);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.uq-sidebar-layout__main h2,
+.uq-sidebar-layout__main .uq-section__title {
+  font-family: var(--ith-font-body);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.uq-sidebar-layout__main h3 {
+  font-family: var(--ith-font-body);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.uq-sidebar-layout__main h4 {
+  font-family: var(--ith-font-body);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.uq-sidebar-layout__main h5 {
+  font-family: var(--ith-font-body);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.uq-sidebar-layout__main h6 {
+  font-family: var(--ith-font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* UQ card/pane typography: Roboto, 16px body, 24px card title. */
+.hub-content .uq-card,
+.hub-content .uq-pane,
+.hub-content .uq-section__description {
+  font-family: var(--ith-font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.hub-content .uq-card__title,
+.hub-content .uq-pane__title {
+  font-family: var(--ith-font-body);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.hub-content .uq-card__description,
+.hub-content .uq-pane__description,
+.hub-content p,
+.hub-content li {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hub-content a {
+  font-weight: 500;
+}
+
+/* Page hero H1 follows the UQDS title face and desktop scale. */
+.uq-hero__title {
+  font-family: var(--ith-font-title);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+/* Option 3 uses official icons only, and only for the four framework areas. */
+.option3-official-area-icon {
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: 0 0 12px;
+  color: #51247a;
+}
+
+/* Keep Option 3 dense despite the standard type scale. */
+.option3-uq-area-card .uq-card__content {
+  padding: 18px 20px;
+}
+
+.option3-uq-area-card .uq-card__title {
+  margin: 0 0 10px;
+  font-family: var(--ith-font-body);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.option3-uq-area-card .uq-card__description {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.option3-uq-link-list a {
+  padding: 8px 4px 8px 0;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+/* Remove the old custom arrow glyph from Option 3 question links.
+   The official framework-area icon provides the visual cue without icon spam. */
+.option3-uq-link-list a::after {
+  content: none;
+}
+
+html[data-design="3"] body.page-home .homepage-framework-heading {
+  margin-top: 40px;
+}
+
+html[data-design="3"] body.page-home .homepage-icon-card .option3-official-area-icon {
+  margin-bottom: 14px;
+}
+
+/* Compact Option 3 support: current UQ training/resources link-list pattern. */
+.option3-support-compact {
+  margin: 48px 0 0;
+  padding: 0;
+}
+
+.option3-support-compact .uq-section__header {
+  margin-bottom: 18px;
+}
+
+.option3-support-link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  border-top: 1px solid #e4e1e5;
+}
+
+.option3-support-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 72px;
+  padding: 16px 2px;
+  border-bottom: 1px solid #e4e1e5;
+  color: #51247a;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.option3-support-link:hover,
+.option3-support-link:focus-visible {
+  color: #51247a;
+  background: #f7f7f7;
+}
+
+.option3-support-link__icon {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  color: #51247a;
+}
+
+/* Standard UQDS mobile heading scale. */
+@media (max-width: 767px) {
+  .uq-sidebar-layout__main h1,
+  .uq-hero__title {
+    font-size: 30px;
+  }
+
+  .uq-sidebar-layout__main h2,
+  .uq-sidebar-layout__main .uq-section__title {
+    font-size: 24px;
+  }
+
+  .uq-sidebar-layout__main h3 {
+    font-size: 22px;
+  }
+
+  .hub-content .uq-card__title,
+  .hub-content .uq-pane__title {
+    font-size: 22px;
+  }
+
+  .option3-uq-area-card .uq-card__title {
+    font-size: 20px;
+  }
+
+  .option3-support-link-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}
+
+/* ========================================================================== 
+   2026-10-06 — Shared framework-element content layout across all options
+   The three prototype options continue to test navigation/entry structures,
+   but once a user opens an individual Inclusive Teaching Framework practice,
+   Options 1, 2 and 3 now use the same standard UQ content-page layout.
+   ========================================================================== */
+
+/* Hide the bespoke Option 2 and Option 3 framework-element treatments. */
+body.page-framework-element .alt-guide--visual,
+body.page-framework-element .alt-guide--focus {
+  display: none !important;
+}
+
+/* Use the established Option 1 UQ content layout regardless of selected
+   prototype option. This deliberately overrides the global .option1-only
+   visibility rules only on framework-element pages. */
+html[data-design="1"] body.page-framework-element .uq-standard-framework-page,
+html[data-design="2"] body.page-framework-element .uq-standard-framework-page,
+html[data-design="3"] body.page-framework-element .uq-standard-framework-page {
+  display: block !important;
+}
+
+/* Prevent any generic option visibility rule from re-showing alternate guides. */
+html[data-design="1"] body.page-framework-element .alt-guide,
+html[data-design="2"] body.page-framework-element .alt-guide,
+html[data-design="3"] body.page-framework-element .alt-guide {
+  display: none !important;
+}
+
+
+/* ========================================================================== 
+   2026-10-06 — Shared framework-element hero across all prototype options
+   Individual framework guidance now uses one consistent UQ hero and one
+   consistent content layout after navigation, regardless of Option 1/2/3.
+   ========================================================================== */
+html[data-design="1"] body.page-framework-element .framework-element-hero,
+html[data-design="2"] body.page-framework-element .framework-element-hero,
+html[data-design="3"] body.page-framework-element .framework-element-hero {
+  display: block !important;
+}
+
+/* ========================================================================== 
+   2026-10-06 — Option 2 full-framework pane: image left, content right
+   Deliberately contrasts with the four REAL area panes above.
+   ========================================================================== */
+.option2-full-framework-pane {
+  grid-template-columns: minmax(300px, 46%) minmax(0, 1fr);
+  grid-template-areas: "image content";
+}
+
+.option2-full-framework-pane .uq-pane__content {
+  padding: 24px 0 24px 48px;
+}
+
+@media (max-width: 820px) {
+  .option2-full-framework-pane {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "content";
+  }
+
+  .option2-full-framework-pane .uq-pane__content {
+    padding: 24px 0 0;
+  }
+}
