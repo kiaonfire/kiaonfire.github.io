@@ -99,3 +99,98 @@
     }
   });
 })();
+
+
+// Copy-to-clipboard helpers for ready-to-adapt framework templates.
+(function(){
+  async function copyText(text){
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const ta=document.createElement('textarea');
+    ta.value=text;
+    ta.setAttribute('readonly','');
+    ta.style.position='fixed';
+    ta.style.opacity='0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+  }
+  document.addEventListener('DOMContentLoaded',()=>{
+    document.querySelectorAll('[data-copy-target]').forEach(btn=>{
+      btn.addEventListener('click',async()=>{
+        const target=document.getElementById(btn.dataset.copyTarget);
+        if(!target) return;
+        const box=btn.closest('.outcome-template');
+        const status=box ? box.querySelector('.outcome-copy-status') : null;
+        try{
+          await copyText(target.textContent.trim());
+          if(status) status.textContent='Copied to clipboard.';
+        }catch(e){
+          if(status) status.textContent='Select the text and copy it manually.';
+        }
+      });
+    });
+  });
+})();
+
+
+// Inclusive learning outcomes: UQ-style accordion and copy helpers.
+(function(){
+  function setAccordionState(button, open){
+    const contentId = button.getAttribute('aria-controls');
+    const content = document.getElementById(contentId);
+    if(!content) return;
+
+    button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    content.setAttribute('aria-hidden', open ? 'false' : 'true');
+    content.classList.toggle('uq-accordion__content--active', open);
+
+    const icon = button.querySelector('.learning-outcomes-accordion__icon');
+    if(icon){
+      icon.classList.toggle('uq-icon--standard--chevron-down', !open);
+      icon.classList.toggle('uq-icon--standard--chevron-up', open);
+    }
+  }
+
+  async function copyText(text){
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.learning-outcomes-accordion .uq-accordion__toggle').forEach(function(button){
+      button.addEventListener('click', function(){
+        const open = button.getAttribute('aria-expanded') === 'true';
+        setAccordionState(button, !open);
+      });
+    });
+
+    document.querySelectorAll('.learning-outcomes-copy-button[data-copy-target]').forEach(function(button){
+      button.addEventListener('click', async function(){
+        const target = document.getElementById(button.dataset.copyTarget);
+        if(!target) return;
+        const status = button.parentElement.querySelector('.learning-outcomes-copy-status');
+        try{
+          await copyText(target.textContent.trim());
+          if(status) status.textContent = 'Copied to clipboard.';
+        }catch(e){
+          if(status) status.textContent = 'Select the wording and copy it manually.';
+        }
+      });
+    });
+  });
+})();

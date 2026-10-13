@@ -162,3 +162,38 @@ Homepage card refresh:
 2026-10-06 Option 2 framework pane refinement:
 - Flipped the “Access the full framework” pane on Curriculum, Teaching and Assessment so the image is on the left and text/button on the right.
 - Kept the four REAL area panes above in their existing text-left/image-right orientation to create a visual distinction.
+
+
+2026-10-13 practical framework-element prototype:
+- Redesigned `respect-curriculum-outcomes.html` as a complete worked example for academics.
+- The same content layout is now shown for Options 1, 2 and 3 on this prototype page.
+- Added a real UQ student-partnership perspective with links to Student Voice.
+- Embedded the UQ Graduate Attributes 'Connected Citizens and Respectful Leaders' video.
+- Added a real HASS Graduate Attributes implementation example and links to UQ case studies.
+- Added direct links to relevant UQ initiatives: Graduate Attributes, planning for learning, curriculum co-creation and Indigenising Curriculum.
+- Added four ready-to-adapt learning outcome templates with working copy buttons.
+- Added a simple editable mapping check and strengthened the final reflection checklist.
+
+
+2026-10-13 practical page refinement:
+- Removed the Reflection check from `respect-curriculum-outcomes.html`.
+- Removed the separate Steps to address it section; implementation is now handled entirely through Put this into practice.
+- Reworked Put this into practice from four dense cards into a single linear UQ-style flow with four numbered sections separated by rules.
+- Student experience is now a text/quote section, the UQ example uses a two-column video-and-copy pane, UQ initiatives use a compact two-column link list, and copy/adapt templates use collapsible disclosure rows with copy buttons.
+
+
+2026-10-13 searchable framework page titles:
+- Renamed all 39 framework-element pages using concise, search-friendly teaching terms while keeping filenames unchanged.
+- Updated page H1s, browser titles, breadcrumb labels and internal link labels across the site.
+- Preserved each original reflective question as a short lead on the framework page.
+- Added page-specific meta descriptions using the new title plus the reflective question.
+- Examples: Whose knowledge and perspectives are represented? → Diverse perspectives in the curriculum; Do learning outcomes include inclusive capabilities where relevant? → Inclusive learning outcomes.
+
+
+2026-10-13 Inclusive learning outcomes UQDS redesign:
+- Removed numbering from the practical subheadings.
+- Rebuilt the page around the same simple content flow used on current UQ Library pages: standard headings, paragraphs and lists.
+- Replaced the custom discipline callout with a UQ-style info alert.
+- Rebuilt the copy-and-adapt templates with the current UQ manual accordion structure used on Software training resources.
+- Rebuilt the mapping check with the responsive table wrapper pattern used on the Library Logging in page.
+- Kept the student perspective, UQ Graduate Attributes video, HASS example, UQ initiative links and copyable learning-outcome templates.
