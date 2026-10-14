@@ -6067,3 +6067,211 @@ html[data-design="3"] body.page-framework-element .framework-element-hero {
     padding: 0 16px 16px;
   }
 }
+
+
+/* ==========================================================================
+   2026-10-13 — Shared UQDS framework-element structure
+   Applied to all framework practice pages except the richer Inclusive
+   learning outcomes reference page.
+   ========================================================================== */
+
+.page-framework-uqds-standard .shared-framework-guide {
+  display: block !important;
+}
+
+.page-framework-uqds-standard .framework-element-uqds-standard {
+  max-width: 900px;
+}
+
+.page-framework-uqds-standard .framework-element-uqds-standard > h2 {
+  margin-top: 40px;
+}
+
+.page-framework-uqds-standard .framework-element-uqds-standard > h3 {
+  margin-top: 28px;
+}
+
+.page-framework-uqds-standard .framework-element-uqds-standard > p,
+.page-framework-uqds-standard .framework-element-uqds-standard > ul,
+.page-framework-uqds-standard .framework-element-uqds-standard > ol {
+  max-width: 820px;
+}
+
+.page-framework-uqds-standard .framework-question-prompt {
+  margin-bottom: 12px;
+}
+
+.page-framework-uqds-standard .framework-element-uqds-standard ol {
+  padding-left: 24px;
+}
+
+.page-framework-uqds-standard .framework-element-uqds-standard li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 767px) {
+  .page-framework-uqds-standard .framework-element-uqds-standard > h2 {
+    margin-top: 32px;
+  }
+
+  .page-framework-uqds-standard .framework-element-uqds-standard > h3 {
+    margin-top: 24px;
+  }
+}
+
+
+/* ==========================================================================
+   2026-10-13 — Full practical framework structure
+   Student experience → UQ example/video → UQ connections → copy/adapt.
+   ========================================================================== */
+
+.page-framework-full-practical .shared-framework-guide {
+  display: block !important;
+}
+
+.page-framework-full-practical .framework-full-practical {
+  max-width: 900px;
+}
+
+.page-framework-full-practical .framework-full-practical > h2 {
+  margin-top: 40px;
+}
+
+.page-framework-full-practical .framework-full-practical > h3 {
+  margin-top: 32px;
+}
+
+.page-framework-full-practical .framework-full-practical > h4 {
+  margin-top: 24px;
+}
+
+.framework-uq-video {
+  width: 100%;
+  max-width: 720px;
+  margin: 18px 0 14px;
+  aspect-ratio: 16 / 9;
+  background: var(--uq-grey-900, #1f1f1f);
+}
+
+.framework-uq-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.framework-uq-resource-list {
+  margin: 18px 0 28px;
+  padding-left: 22px;
+}
+
+.framework-uq-resource-list li {
+  margin-bottom: 10px;
+}
+
+.framework-uq-resource-list a {
+  font-weight: 500;
+}
+
+.framework-copy-accordion {
+  margin: 20px 0 32px;
+  padding: 0;
+  list-style: none;
+}
+
+.framework-copy-accordion .uq-accordion__item {
+  margin-bottom: 8px;
+  border: 1px solid var(--uq-grey-200, #d7d1cc);
+  border-radius: 2px;
+  background: var(--uq-white, #fff);
+}
+
+.framework-copy-accordion .uq-accordion__toggle {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 16px 24px;
+  border: 0;
+  background: var(--uq-white, #fff);
+  color: var(--uq-grey-900, #19151c);
+  font: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+.framework-copy-accordion .uq-accordion__toggle:hover,
+.framework-copy-accordion .uq-accordion__toggle:focus-visible {
+  background: var(--uq-grey-50, #f7f7f7);
+}
+
+.framework-copy-accordion__icon {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.framework-copy-accordion .uq-accordion__content {
+  display: none;
+  overflow: hidden;
+}
+
+.framework-copy-accordion .uq-accordion__content--active {
+  display: block;
+}
+
+.framework-copy-accordion .uq-accordion__content-wrapper {
+  padding: 0 24px 24px;
+}
+
+.framework-copy-button {
+  min-height: 40px;
+  margin-top: 8px;
+  padding: 8px 16px;
+  border: 2px solid var(--uq-purple-500, #51247a);
+  border-radius: 2px;
+  background: var(--uq-purple-500, #51247a);
+  color: var(--uq-white, #fff);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.framework-copy-button:hover,
+.framework-copy-button:focus-visible {
+  background: var(--uq-purple-700, #3b1b5a);
+  border-color: var(--uq-purple-700, #3b1b5a);
+}
+
+.framework-copy-status {
+  display: inline-block;
+  min-height: 20px;
+  margin-left: 12px;
+  color: var(--uq-success-700, #2b6b2b);
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .page-framework-full-practical .framework-full-practical > h2 {
+    margin-top: 32px;
+  }
+
+  .page-framework-full-practical .framework-full-practical > h3 {
+    margin-top: 26px;
+  }
+
+  .framework-copy-accordion .uq-accordion__toggle {
+    padding: 14px 16px;
+    font-size: 18px;
+  }
+
+  .framework-copy-accordion .uq-accordion__content-wrapper {
+    padding: 0 16px 16px;
+  }
+}

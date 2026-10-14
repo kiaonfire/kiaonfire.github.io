@@ -197,3 +197,26 @@ Homepage card refresh:
 - Rebuilt the copy-and-adapt templates with the current UQ manual accordion structure used on Software training resources.
 - Rebuilt the mapping check with the responsive table wrapper pattern used on the Library Logging in page.
 - Kept the student perspective, UQ Graduate Attributes video, HASS example, UQ initiative links and copyable learning-outcome templates.
+
+
+2026-10-13 shared framework-page structure:
+- Expanded the UQ Design System content structure developed for Inclusive learning outcomes across the other framework-element pages.
+- All framework pages now use one shared content layout across Options 1, 2 and 3.
+- Removed separate 'Steps to address it' and Reflection check sections from the other framework pages.
+- Folded existing action guidance into 'Put this into practice' > 'What to change'.
+- Kept each page's existing 'Example in practice' and existing resource links, presented as standard UQ content.
+- Preserved the richer, bespoke student voice / UQ example / accordion / mapping treatment on Inclusive learning outcomes as the reference page.
+
+2026-10-13 expanded practical support across every framework page:
+- Added the four practical sections used on Inclusive learning outcomes to the other 38 framework pages:
+  Start with the student experience; See how it is already being done at UQ; Connect it to existing UQ work; Copy and adapt a starting point.
+- Reused each page's existing student-experience content and practical example.
+- Added an authentic UQ/UQ-linked video to every framework page, selected by theme rather than inventing a unique video where none exists.
+- Added page-relevant links to existing UQ initiatives, guidance and services.
+- Added three ready-to-adapt copy blocks on every page: student-facing wording, teaching-team review prompt and course-review note.
+- Added UQ-style accordions and working copy buttons for these templates.
+
+
+2026-10-14 wording update:
+- Replaced ampersands in user-facing website copy with the word 'and' to match UQ editorial style.
+- URLs, query strings, code, scripts and CSS were left unchanged so functionality is preserved.

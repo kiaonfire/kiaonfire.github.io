@@ -194,3 +194,58 @@
     });
   });
 })();
+
+
+// Shared framework practical accordions and copy buttons.
+(function(){
+  function setState(button, open){
+    const content=document.getElementById(button.getAttribute('aria-controls'));
+    if(!content) return;
+    button.setAttribute('aria-expanded', open ? 'true':'false');
+    content.setAttribute('aria-hidden', open ? 'false':'true');
+    content.classList.toggle('uq-accordion__content--active', open);
+    const icon=button.querySelector('.framework-copy-accordion__icon');
+    if(icon){
+      icon.classList.toggle('uq-icon--standard--chevron-down', !open);
+      icon.classList.toggle('uq-icon--standard--chevron-up', open);
+    }
+  }
+
+  async function copyText(text){
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const ta=document.createElement('textarea');
+    ta.value=text;
+    ta.setAttribute('readonly','');
+    ta.style.position='fixed';
+    ta.style.opacity='0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.framework-copy-accordion .uq-accordion__toggle').forEach(function(button){
+      button.addEventListener('click', function(){
+        setState(button, button.getAttribute('aria-expanded') !== 'true');
+      });
+    });
+
+    document.querySelectorAll('.framework-copy-button[data-copy-target]').forEach(function(button){
+      button.addEventListener('click', async function(){
+        const target=document.getElementById(button.dataset.copyTarget);
+        if(!target) return;
+        const status=button.parentElement.querySelector('.framework-copy-status');
+        try{
+          await copyText(target.textContent.trim());
+          if(status) status.textContent='Copied to clipboard.';
+        }catch(e){
+          if(status) status.textContent='Select the wording and copy it manually.';
+        }
+      });
+    });
+  });
+})();
