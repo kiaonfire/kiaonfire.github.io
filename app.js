@@ -249,3 +249,36 @@
     });
   });
 })();
+
+
+// Option 3 minimal framework pages: one click to copy the page-specific text.
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-minimal-copy-target]').forEach(function (button) {
+      button.addEventListener('click', async function () {
+        var target = document.getElementById(button.getAttribute('data-minimal-copy-target'));
+        if (!target) return;
+        var status = button.parentElement.querySelector('.option3-minimal-copy-status');
+        var text = target.textContent.trim();
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            var field = document.createElement('textarea');
+            field.value = text;
+            field.setAttribute('readonly', '');
+            field.style.position = 'fixed';
+            field.style.opacity = '0';
+            document.body.appendChild(field);
+            field.select();
+            if (!document.execCommand('copy')) throw new Error('Copy failed');
+            field.remove();
+          }
+          if (status) status.textContent = 'Copied.';
+        } catch (error) {
+          if (status) status.textContent = 'Select the text above to copy it.';
+        }
+      });
+    });
+  });
+})();
