@@ -6275,3 +6275,126 @@ html[data-design="3"] body.page-framework-element .framework-element-hero {
     padding: 0 16px 16px;
   }
 }
+
+
+/* ============================================================
+   Option 2 framework-element prototype: embedded UQ-styled PDF
+   Options 1 and 3 keep the existing HTML article layout.
+   ============================================================ */
+body.page-framework-element .option2-framework-pdf {display:none !important;}
+html[data-design="2"] body.page-framework-element .hub-content > .shared-framework-guide {display:none !important;}
+html[data-design="2"] body.page-framework-element .hub-content > .option2-framework-pdf {display:block !important;}
+html[data-design="1"] body.page-framework-element .hub-content > .option2-framework-pdf,
+html[data-design="3"] body.page-framework-element .hub-content > .option2-framework-pdf {display:none !important;}
+.option2-framework-pdf {max-width:930px;margin:20px 0 42px;}
+.option2-framework-pdf > h2 {font-size:28px;font-weight:500;line-height:1.25;margin:0 0 9px;}
+.option2-framework-pdf > p {font-size:16px;line-height:1.6;margin:0 0 18px;}
+.option2-pdf-actions {display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin:12px 0 18px;}
+.option2-pdf-actions .uq-button {display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 19px;color:#fff;background:#51247a;border-radius:2px;text-decoration:none;font-size:16px;font-weight:500;}
+.option2-pdf-actions .uq-button:hover,.option2-pdf-actions .uq-button:focus-visible {background:#341552;color:#fff;text-decoration:underline;}
+.option2-pdf-textlink {font-size:16px;text-decoration:underline;text-underline-offset:2px;}
+.option2-pdf-viewer {display:block;width:100%;height:min(1100px,80vh);min-height:530px;border:1px solid #d7d3dc;border-radius:2px;background:#f4f1f6;}
+.option2-pdf-text {margin-top:21px;border-top:1px solid #d7d3dc;border-bottom:1px solid #d7d3dc;}
+.option2-pdf-text summary {cursor:pointer;padding:17px 42px 17px 0;color:#51247a;font-size:18px;font-weight:500;}
+.option2-pdf-text summary:hover,.option2-pdf-text summary:focus-visible {text-decoration:underline;}
+.option2-pdf-text__body {padding:0 0 28px;max-width:800px;}
+.option2-pdf-text__body h3 {font-size:22px;margin:28px 0 10px;}
+.option2-pdf-text__body p,.option2-pdf-text__body li {font-size:16px;line-height:1.6;}
+@media (max-width:760px) {.option2-pdf-viewer {height:68vh;min-height:440px;} .option2-framework-pdf > h2 {font-size:24px;}}
+
+
+/* 2026-10-16 — Option 3: minimal, action-first framework-element layout.
+   Option 1 retains the full article; Option 2 retains the PDF guide. */
+html[data-design="1"] body.page-framework-element .hub-content > .option3-framework-minimal,
+html[data-design="2"] body.page-framework-element .hub-content > .option3-framework-minimal,
+body.page-framework-element .hub-content > .option3-framework-minimal {
+  display: none !important;
+}
+html[data-design="3"] body.page-framework-element .hub-content > .option3-framework-minimal {
+  display: block !important;
+}
+html[data-design="3"] body.page-framework-element .hub-content > .shared-framework-guide,
+html[data-design="3"] body.page-framework-element .hub-content > .option2-framework-pdf {
+  display: none !important;
+}
+.option3-framework-minimal {
+  max-width: 770px;
+  margin: 27px 0 54px;
+  font-family: var(--uq-font, Roboto, Arial, sans-serif);
+  color: var(--uq-grey-900, #262626);
+}
+.option3-framework-minimal .option3-minimal-lead {
+  margin: 0 0 31px;
+  max-width: 700px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+.option3-framework-minimal h2 {
+  color: var(--uq-grey-900, #262626);
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 31px 0 12px;
+}
+.option3-framework-minimal .option3-minimal-actions {
+  list-style: disc;
+  padding: 0 0 0 24px;
+  margin: 0;
+}
+.option3-framework-minimal .option3-minimal-actions li {
+  padding-left: 4px;
+  margin: 0 0 11px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.option3-framework-minimal .option3-minimal-example {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.option3-framework-minimal .option3-minimal-copy {
+  background: #f6f5f8;
+  border-left: 3px solid var(--uq-purple-500, #51247a);
+  padding: 16px 19px 15px;
+}
+.option3-framework-minimal .option3-minimal-copy p {
+  margin: 0 0 13px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.option3-framework-minimal .option3-minimal-copy-button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 2px solid var(--uq-purple-500, #51247a);
+  border-radius: 2px;
+  color: var(--uq-purple-500, #51247a);
+  background: white;
+  font: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+.option3-framework-minimal .option3-minimal-copy-button:hover,
+.option3-framework-minimal .option3-minimal-copy-button:focus-visible {
+  background: var(--uq-purple-500, #51247a);
+  color: #fff;
+}
+.option3-framework-minimal .option3-minimal-copy-button:focus-visible {
+  outline: 3px solid var(--uq-utility-500, #f0ca44);
+  outline-offset: 2px;
+}
+.option3-framework-minimal .option3-minimal-copy-status {
+  margin-left: 12px;
+  font-size: 14px;
+}
+.option3-framework-minimal .option3-minimal-resource {
+  margin: 19px 0 0;
+  font-size: 15px;
+}
+@media (max-width:767px) {
+  .option3-framework-minimal {margin: 20px 0 40px;}
+  .option3-framework-minimal .option3-minimal-lead {font-size: 18px; margin-bottom: 25px;}
+  .option3-framework-minimal h2 {font-size: 22px; margin-top: 26px;}
+  .option3-framework-minimal .option3-minimal-copy {padding: 14px 16px;}
+}

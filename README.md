@@ -220,3 +220,10 @@ Homepage card refresh:
 2026-10-14 wording update:
 - Replaced ampersands in user-facing website copy with the word 'and' to match UQ editorial style.
 - URLs, query strings, code, scripts and CSS were left unchanged so functionality is preserved.
+
+
+Option 3 minimal framework pages (2026-10-16):
+- Each of the 39 framework-element pages has a compact Option 3 layout with a one-sentence focus, three topic-specific actions, a worked example, one copyable starting point and one relevant UQ link.
+- Reuses the action and example material from the Option 2 guide's accessible HTML text, with topic-specific edits where needed.
+- Option 1's full HTML content and Option 2's embedded PDFs and accessible text remain unchanged.
+- The UQ-style design switcher determines which one of the three presentations is visible.
